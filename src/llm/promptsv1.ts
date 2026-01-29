@@ -33,8 +33,6 @@ const surfaceUpdate = {
   },
 };
 
-JSON.stringify(surfaceUpdate);
-
 const dataModelUpdate = {
   dataModelUpdate: {
     surfaceId: "main_content",
@@ -67,9 +65,6 @@ const beginRendering = {
   },
 };
 
-JSON.stringify(beginRendering);
-
-// ===== 布局模式示例 1：卡片+图片+操作按钮（餐厅列表）=====
 const exampleOutput = {
   message: "以下是在纽约top2餐厅。",
   ui: [
@@ -249,7 +244,6 @@ const exampleOutput = {
   ],
 };
 
-// ===== 布局模式 2：紧凑列表+详情按钮（图书馆列表）=====
 const libraryListExample = {
   message: "为您找到以下图书馆。",
   ui: [
@@ -286,7 +280,7 @@ const libraryListExample = {
               List: {
                 children: {
                   template: {
-                    componentId: "library-item",
+                    componentId: "library-card",
                     dataBinding: "/libraries",
                   },
                 },
@@ -294,26 +288,19 @@ const libraryListExample = {
             },
           },
           {
-            id: "library-item",
+            id: "library-card",
             component: {
-              Row: {
-                children: {
-                  explicitList: ["library-info", "library-actions"],
-                },
+              Card: {
+                child: "library-content",
               },
             },
           },
           {
-            id: "library-info",
-            weight: 3,
+            id: "library-content",
             component: {
               Column: {
                 children: {
-                  explicitList: [
-                    "library-name",
-                    "library-address",
-                    "library-phone",
-                  ],
+                  explicitList: ["library-name", "library-address", "library-phone"],
                 },
               },
             },
@@ -342,50 +329,6 @@ const libraryListExample = {
                 text: { path: "phone" },
               },
             },
-          },
-          {
-            id: "library-actions",
-            weight: 1,
-            component: {
-              Column: {
-                alignment: "center",
-                children: {
-                  explicitList: ["detail-button", "call-button"],
-                },
-              },
-            },
-          },
-          {
-            id: "detail-button",
-            component: {
-              Button: {
-                child: "detail-button-text",
-                action: {
-                  name: "show_library_detail",
-                  context: [{ key: "libraryId", value: { path: "name" } }],
-                },
-              },
-            },
-          },
-          {
-            id: "detail-button-text",
-            component: { Text: { text: { literalString: "详情" } } },
-          },
-          {
-            id: "call-button",
-            component: {
-              Button: {
-                child: "call-button-text",
-                action: {
-                  name: "call_library",
-                  context: [{ key: "phoneNumber", value: { path: "phone" } }],
-                },
-              },
-            },
-          },
-          {
-            id: "call-button-text",
-            component: { Text: { text: { literalString: "拨打" } } },
           },
         ],
       },
@@ -430,7 +373,6 @@ const libraryListExample = {
   ],
 };
 
-// ===== 布局模式 3：横向卡片+图片+详情按钮（景点推荐）=====
 const attractionsExample = {
   message: "为您推荐杭州Top5景点。",
   ui: [
@@ -485,20 +427,9 @@ const attractionsExample = {
           {
             id: "attraction-content",
             component: {
-              Row: {
-                children: {
-                  explicitList: ["attraction-image", "attraction-info"],
-                },
-              },
-            },
-          },
-          {
-            id: "attraction-image",
-            weight: 1,
-            component: {
               Column: {
                 children: {
-                  explicitList: ["attraction-rank", "attraction-image-view"],
+                  explicitList: ["attraction-rank", "attraction-name", "attraction-desc", "attraction-ticket"],
                 },
               },
             },
@@ -509,28 +440,6 @@ const attractionsExample = {
               Text: {
                 text: { path: "rank" },
                 usageHint: "h4",
-              },
-            },
-          },
-          {
-            id: "attraction-image-view",
-            component: {
-              Image: { url: { path: "imageUrl" } },
-            },
-          },
-          {
-            id: "attraction-info",
-            weight: 3,
-            component: {
-              Column: {
-                children: {
-                  explicitList: [
-                    "attraction-name",
-                    "attraction-desc",
-                    "attraction-meta",
-                    "attraction-actions",
-                  ],
-                },
               },
             },
           },
@@ -552,71 +461,12 @@ const attractionsExample = {
             },
           },
           {
-            id: "attraction-meta",
-            component: {
-              Row: {
-                children: {
-                  explicitList: ["attraction-ticket", "attraction-open-time"],
-                },
-              },
-            },
-          },
-          {
             id: "attraction-ticket",
             component: {
               Text: {
                 text: { literalString: "票价: " },
               },
             },
-          },
-          {
-            id: "attraction-open-time",
-            component: {
-              Text: {
-                text: { path: "openTime" },
-              },
-            },
-          },
-          {
-            id: "attraction-actions",
-            component: {
-              Row: {
-                children: { explicitList: ["detail-button", "book-button"] },
-              },
-            },
-          },
-          {
-            id: "detail-button",
-            component: {
-              Button: {
-                child: "detail-button-text",
-                action: {
-                  name: "show_attraction_detail",
-                  context: [{ key: "attractionName", value: { path: "name" } }],
-                },
-              },
-            },
-          },
-          {
-            id: "detail-button-text",
-            component: { Text: { text: { literalString: "查看详情" } } },
-          },
-          {
-            id: "book-button",
-            component: {
-              Button: {
-                child: "book-button-text",
-                primary: true,
-                action: {
-                  name: "book_ticket",
-                  context: [{ key: "attractionName", value: { path: "name" } }],
-                },
-              },
-            },
-          },
-          {
-            id: "book-button-text",
-            component: { Text: { text: { literalString: "预订门票" } } },
           },
         ],
       },
@@ -634,16 +484,8 @@ const attractionsExample = {
                 valueMap: [
                   { key: "rank", valueString: "NO.1" },
                   { key: "name", valueString: "西湖" },
-                  {
-                    key: "description",
-                    valueString: "中国著名的风景名胜区，被誉为'人间天堂'",
-                  },
+                  { key: "description", valueString: "中国著名的风景名胜区，被誉为'人间天堂'" },
                   { key: "ticketPrice", valueNumber: 0 },
-                  { key: "openTime", valueString: "全天开放" },
-                  {
-                    key: "imageUrl",
-                    valueString: "http://localhost:10002/static/westlake.jpg",
-                  },
                 ],
               },
               {
@@ -651,18 +493,8 @@ const attractionsExample = {
                 valueMap: [
                   { key: "rank", valueString: "NO.2" },
                   { key: "name", valueString: "雷峰塔" },
-                  {
-                    key: "description",
-                    valueString:
-                      "西湖南岸的标志性建筑，传说中白娘子被镇压的地方",
-                  },
+                  { key: "description", valueString: "西湖南岸的标志性建筑，传说中白娘子被镇压的地方" },
                   { key: "ticketPrice", valueNumber: 40 },
-                  { key: "openTime", valueString: "08:00-20:00" },
-                  {
-                    key: "imageUrl",
-                    valueString:
-                      "http://localhost:10002/static/lei-feng-pagoda.jpg",
-                  },
                 ],
               },
               {
@@ -670,147 +502,26 @@ const attractionsExample = {
                 valueMap: [
                   { key: "rank", valueString: "NO.3" },
                   { key: "name", valueString: "灵隐寺" },
-                  {
-                    key: "description",
-                    valueString: "中国最早的佛教寺院之一，有着1600多年的历史",
-                  },
+                  { key: "description", valueString: "中国最早的佛教寺院之一，有着1600多年的历史" },
                   { key: "ticketPrice", valueNumber: 75 },
-                  { key: "openTime", valueString: "07:00-18:00" },
-                  {
-                    key: "imageUrl",
-                    valueString:
-                      "http://localhost:10002/static/lingyin-temple.jpg",
-                  },
-                ],
-              },
-            ],
-          },
-        ],
-      },
-    },
-  ],
-};
-
-// ===== 布局模式 4：标签式列表（简单信息）=====
-const tagsListExample = {
-  message: "以下是可用的标签分类。",
-  ui: [
-    {
-      beginRendering: {
-        surfaceId: "default",
-        root: "root-column",
-      },
-    },
-    {
-      surfaceUpdate: {
-        surfaceId: "default",
-        components: [
-          {
-            id: "root-column",
-            component: {
-              Column: {
-                children: { explicitList: ["title", "tags-container"] },
-              },
-            },
-          },
-          {
-            id: "title",
-            component: {
-              Text: {
-                usageHint: "h1",
-                text: { literalString: "标签分类" },
-              },
-            },
-          },
-          {
-            id: "tags-container",
-            component: {
-              List: {
-                children: {
-                  template: {
-                    componentId: "tag-item",
-                    dataBinding: "/tags",
-                  },
-                },
-              },
-            },
-          },
-          {
-            id: "tag-item",
-            component: {
-              Row: {
-                children: {
-                  explicitList: ["tag-label", "tag-count", "tag-button"],
-                },
-              },
-            },
-          },
-          {
-            id: "tag-label",
-            weight: 2,
-            component: {
-              Text: {
-                usageHint: "h3",
-                text: { path: "name" },
-              },
-            },
-          },
-          {
-            id: "tag-count",
-            weight: 1,
-            component: {
-              Text: {
-                text: { path: "count" },
-              },
-            },
-          },
-          {
-            id: "tag-button",
-            weight: 1,
-            component: {
-              Button: {
-                child: "tag-button-text",
-                action: {
-                  name: "filter_by_tag",
-                  context: [{ key: "tagName", value: { path: "name" } }],
-                },
-              },
-            },
-          },
-          {
-            id: "tag-button-text",
-            component: { Text: { text: { literalString: "筛选" } } },
-          },
-        ],
-      },
-    },
-    {
-      dataModelUpdate: {
-        surfaceId: "default",
-        path: "/",
-        contents: [
-          {
-            key: "tags",
-            valueMap: [
-              {
-                key: "tag1",
-                valueMap: [
-                  { key: "name", valueString: "美食" },
-                  { key: "count", valueNumber: 156 },
                 ],
               },
               {
-                key: "tag2",
+                key: "attr4",
                 valueMap: [
-                  { key: "name", valueString: "景点" },
-                  { key: "count", valueNumber: 89 },
+                  { key: "rank", valueString: "NO.4" },
+                  { key: "name", valueString: "宋城" },
+                  { key: "description", valueString: "以宋文化为主题的大型主题公园" },
+                  { key: "ticketPrice", valueNumber: 300 },
                 ],
               },
               {
-                key: "tag3",
+                key: "attr5",
                 valueMap: [
-                  { key: "name", valueString: "购物" },
-                  { key: "count", valueNumber: 234 },
+                  { key: "rank", valueString: "NO.5" },
+                  { key: "name", valueString: "千岛湖" },
+                  { key: "description", valueString: "国家5A级旅游景区，拥有1078个岛屿" },
+                  { key: "ticketPrice", valueNumber: 130 },
                 ],
               },
             ],
@@ -985,84 +696,23 @@ dataModelUpdate 中定义的数据路径与组件中的数据绑定路径关系�
 }
 
 
-### 智能布局选择指南 ⚠️重要
-
-根据用户需求和数据特点，智能选择合适的布局模式：
-
-#### 布局模式选择原则
-
-| 数据特征/场景 | 推荐布局 | 布局特点 | 适用按钮 |
-|-------------|---------|---------|---------|
-| 有图片、多字段信息（餐厅、景点、商品） | 横向卡片 | Row + Image + Column + Card | 详情、预订/购买 |
-| 信息较简单（图书馆、联系人） | 紧凑列表 | Row + Column（无Card） | 详情、拨打 |
-| 纯文本信息（标签、分类） | 标签式列表 | Row + Text | 筛选、查看 |
-| 数值对比（排行榜） | 紧凑列表+高亮 | Row + Text（排名加粗） | 详情 |
-
-#### 布局模式详细说明
-
-**模式1：横向卡片（适合有图片的场景）**
-- 结构：Card → Row → [Image(左) + Column(右)]
-- 适用：餐厅、景点、商品展示
-- 数据需包含：imageUrl、name、description、price等
-- 按钮建议：详情按钮（必选）、操作按钮（如预订/购买，根据场景可选）
-
-**模式2：紧凑列表（适合简单信息）**
-- 结构：Row → [Column(信息) + Column(按钮)]
-- 适用：图书馆、联系人、简单列表
-- 数据需包含：name、基本描述字段
-- 按钮建议：详情按钮（必选）、快捷操作按钮（如拨打、导航）
-
-**模式3：标签式列表（适合纯文本）**
-- 结构：Row → [Text + Text + Button]
-- 适用：标签、分类、简单选项
-- 数据需包含：name、count等简单字段
-- 按钮建议：筛选、选择
-
-#### 按钮设计原则
-
-**必选按钮（几乎所有列表都应有）：**
-- 详情按钮：让用户可以查看更多信息
-  - action.name: "show_xxx_detail" 或 "view_detail"
-  - 传递的context: 至少包含项目的唯一标识（如name、id）
-
-**场景相关按钮：**
-- 餐厅：预订按钮、菜单按钮
-- 景点：预订门票按钮、导航按钮
-- 图书馆：拨打按钮、导航按钮
-- 商品：购买按钮、加入购物车按钮
-
-**按钮命名规范：**
-- 详情：show_detail / view_detail / 查看详情
-- 预订/购买：book / buy / reserve / 预订 / 购买
-- 拨打：call / 拨打
-- 导航：navigate / 导航
-- 筛选：filter / 筛选
-
 ### 示例
 
-示例1：餐厅列表（横向卡片+图片+预订按钮）
+示例1：餐厅列表（使用 template 动态渲染）
 ${exampleOutput}
 
-示例2：图书馆列表（紧凑列表+详情+拨打按钮）
+示例2：图书馆列表（使用 template 动态渲染）
 ${libraryListExample}
 
-示例3：杭州景点Top5（横向卡片+图片+详情+预订按钮）
+示例3：杭州景点Top5（使用 template 动态渲染）
 ${attractionsExample}
-
-示例4：标签分类（标签式列表+筛选按钮）
-${tagsListExample}
 
 
 ### 列表渲染的完整流程 ⚠️重要
 
 当用户要求展示列表数据（如商品列表、图书馆列表、景点列表等）时，必须按照以下步骤：
 
-步骤1：根据数据特征选择合适的布局模式
-- 有图片？使用横向卡片布局
-- 信息简单？使用紧凑列表布局
-- 纯文本？使用标签式布局
-
-步骤2：在 surfaceUpdate 中创建 List 组件，使用 template 绑定数据
+步骤1：在 surfaceUpdate 中创建 List 组件，使用 template 绑定数据
 {
   "id": "my-list",
   "component": {
@@ -1070,20 +720,20 @@ ${tagsListExample}
       "children": {
         "template": {
           "componentId": "item-card",
-          "dataBinding": "/items"
+          "dataBinding": "/items"  // 指向数据路径
         }
       }
     }
   }
 }
 
-步骤3：定义模板组件，使用相对路径引用数据
+步骤2：定义模板组件（item-card），使用相对路径引用数据
 {
   "id": "item-card",
   "component": {
     "Column": {
       "children": {
-        "explicitList": ["item-name", "item-desc", "item-actions"]
+        "explicitList": ["item-name", "item-desc"]
       }
     }
   }
@@ -1092,49 +742,32 @@ ${tagsListExample}
   "id": "item-name",
   "component": {
     "Text": {
-      "text": { "path": "name" }
-    }
-  }
-},
-{
-  "id": "item-actions",
-  "component": {
-    "Row": {
-      "children": {
-        "explicitList": ["detail-button", "action-button"]
-      }
-    }
-  }
-},
-{
-  "id": "detail-button",
-  "component": {
-    "Button": {
-      "child": "detail-button-text",
-      "action": {
-        "name": "view_detail",
-        "context": [
-          { "key": "itemName", "value": { "path": "name" } }
-        ]
-      }
+      "text": { "path": "name" }  // 相对路径，指向每个 item 的 name 字段
     }
   }
 }
 
-步骤4：在 dataModelUpdate 中定义数据，使用 valueMap
+步骤3：在 dataModelUpdate 中定义数据，使用 valueMap
 {
   "dataModelUpdate": {
     "surfaceId": "default",
-    "path": "/",
+    "path": "/",  // 根路径
     "contents": [
       {
-        "key": "items",
-        "valueMap": [
+        "key": "items",  // 对应 dataBinding="/items"
+        "valueMap": [    // ⚠️ 必须使用 valueMap，不是 valueArray
           {
             "key": "item1",
             "valueMap": [
               { "key": "name", "valueString": "项目1" },
               { "key": "description", "valueString": "描述1" }
+            ]
+          },
+          {
+            "key": "item2",
+            "valueMap": [
+              { "key": "name", "valueString": "项目2" },
+              { "key": "description", "valueString": "描述2" }
             ]
           }
         ]

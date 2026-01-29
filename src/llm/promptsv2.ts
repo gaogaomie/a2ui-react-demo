@@ -33,8 +33,6 @@ const surfaceUpdate = {
   },
 };
 
-JSON.stringify(surfaceUpdate);
-
 const dataModelUpdate = {
   dataModelUpdate: {
     surfaceId: "main_content",
@@ -66,8 +64,6 @@ const beginRendering = {
     catalog: "material-design-v1",
   },
 };
-
-JSON.stringify(beginRendering);
 
 // ===== 布局模式示例 1：卡片+图片+操作按钮（餐厅列表）=====
 const exampleOutput = {
@@ -309,11 +305,7 @@ const libraryListExample = {
             component: {
               Column: {
                 children: {
-                  explicitList: [
-                    "library-name",
-                    "library-address",
-                    "library-phone",
-                  ],
+                  explicitList: ["library-name", "library-address", "library-phone"],
                 },
               },
             },
@@ -362,7 +354,9 @@ const libraryListExample = {
                 child: "detail-button-text",
                 action: {
                   name: "show_library_detail",
-                  context: [{ key: "libraryId", value: { path: "name" } }],
+                  context: [
+                    { key: "libraryId", value: { path: "name" } },
+                  ],
                 },
               },
             },
@@ -378,7 +372,9 @@ const libraryListExample = {
                 child: "call-button-text",
                 action: {
                   name: "call_library",
-                  context: [{ key: "phoneNumber", value: { path: "phone" } }],
+                  context: [
+                    { key: "phoneNumber", value: { path: "phone" } },
+                  ],
                 },
               },
             },
@@ -486,9 +482,7 @@ const attractionsExample = {
             id: "attraction-content",
             component: {
               Row: {
-                children: {
-                  explicitList: ["attraction-image", "attraction-info"],
-                },
+                children: { explicitList: ["attraction-image", "attraction-info"] },
               },
             },
           },
@@ -497,9 +491,7 @@ const attractionsExample = {
             weight: 1,
             component: {
               Column: {
-                children: {
-                  explicitList: ["attraction-rank", "attraction-image-view"],
-                },
+                children: { explicitList: ["attraction-rank", "attraction-image-view"] },
               },
             },
           },
@@ -524,12 +516,7 @@ const attractionsExample = {
             component: {
               Column: {
                 children: {
-                  explicitList: [
-                    "attraction-name",
-                    "attraction-desc",
-                    "attraction-meta",
-                    "attraction-actions",
-                  ],
+                  explicitList: ["attraction-name", "attraction-desc", "attraction-meta", "attraction-actions"],
                 },
               },
             },
@@ -555,9 +542,7 @@ const attractionsExample = {
             id: "attraction-meta",
             component: {
               Row: {
-                children: {
-                  explicitList: ["attraction-ticket", "attraction-open-time"],
-                },
+                children: { explicitList: ["attraction-ticket", "attraction-open-time"] },
               },
             },
           },
@@ -592,7 +577,9 @@ const attractionsExample = {
                 child: "detail-button-text",
                 action: {
                   name: "show_attraction_detail",
-                  context: [{ key: "attractionName", value: { path: "name" } }],
+                  context: [
+                    { key: "attractionName", value: { path: "name" } },
+                  ],
                 },
               },
             },
@@ -609,7 +596,9 @@ const attractionsExample = {
                 primary: true,
                 action: {
                   name: "book_ticket",
-                  context: [{ key: "attractionName", value: { path: "name" } }],
+                  context: [
+                    { key: "attractionName", value: { path: "name" } },
+                  ],
                 },
               },
             },
@@ -634,16 +623,10 @@ const attractionsExample = {
                 valueMap: [
                   { key: "rank", valueString: "NO.1" },
                   { key: "name", valueString: "西湖" },
-                  {
-                    key: "description",
-                    valueString: "中国著名的风景名胜区，被誉为'人间天堂'",
-                  },
+                  { key: "description", valueString: "中国著名的风景名胜区，被誉为'人间天堂'" },
                   { key: "ticketPrice", valueNumber: 0 },
                   { key: "openTime", valueString: "全天开放" },
-                  {
-                    key: "imageUrl",
-                    valueString: "http://localhost:10002/static/westlake.jpg",
-                  },
+                  { key: "imageUrl", valueString: "http://localhost:10002/static/westlake.jpg" },
                 ],
               },
               {
@@ -651,18 +634,10 @@ const attractionsExample = {
                 valueMap: [
                   { key: "rank", valueString: "NO.2" },
                   { key: "name", valueString: "雷峰塔" },
-                  {
-                    key: "description",
-                    valueString:
-                      "西湖南岸的标志性建筑，传说中白娘子被镇压的地方",
-                  },
+                  { key: "description", valueString: "西湖南岸的标志性建筑，传说中白娘子被镇压的地方" },
                   { key: "ticketPrice", valueNumber: 40 },
                   { key: "openTime", valueString: "08:00-20:00" },
-                  {
-                    key: "imageUrl",
-                    valueString:
-                      "http://localhost:10002/static/lei-feng-pagoda.jpg",
-                  },
+                  { key: "imageUrl", valueString: "http://localhost:10002/static/lei-feng-pagoda.jpg" },
                 ],
               },
               {
@@ -670,17 +645,10 @@ const attractionsExample = {
                 valueMap: [
                   { key: "rank", valueString: "NO.3" },
                   { key: "name", valueString: "灵隐寺" },
-                  {
-                    key: "description",
-                    valueString: "中国最早的佛教寺院之一，有着1600多年的历史",
-                  },
+                  { key: "description", valueString: "中国最早的佛教寺院之一，有着1600多年的历史" },
                   { key: "ticketPrice", valueNumber: 75 },
                   { key: "openTime", valueString: "07:00-18:00" },
-                  {
-                    key: "imageUrl",
-                    valueString:
-                      "http://localhost:10002/static/lingyin-temple.jpg",
-                  },
+                  { key: "imageUrl", valueString: "http://localhost:10002/static/lingyin-temple.jpg" },
                 ],
               },
             ],
@@ -739,9 +707,7 @@ const tagsListExample = {
             id: "tag-item",
             component: {
               Row: {
-                children: {
-                  explicitList: ["tag-label", "tag-count", "tag-button"],
-                },
+                children: { explicitList: ["tag-label", "tag-count", "tag-button"] },
               },
             },
           },
@@ -772,7 +738,9 @@ const tagsListExample = {
                 child: "tag-button-text",
                 action: {
                   name: "filter_by_tag",
-                  context: [{ key: "tagName", value: { path: "name" } }],
+                  context: [
+                    { key: "tagName", value: { path: "name" } },
+                  ],
                 },
               },
             },

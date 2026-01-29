@@ -1,6 +1,6 @@
 import ChatMessage from "@/components/ChatMessage";
 import { ChatMessage as ChatMessageType } from "@/types";
-import { Bot, Cpu, Send, Trash2 } from "lucide-react";
+import { Bot, Cpu, Send } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { initializeDefaultCatalog } from "./registry/defaultCatalog";
 // import { generateProject1 } from "./services/a2UIGeminiService";
@@ -12,7 +12,6 @@ const INITIAL_MESSAGE: ChatMessageType = {
   id: "welcome",
   role: "system",
   text: "你好！我是您的智能助手。",
-
   timestamp: new Date(),
 };
 
@@ -79,12 +78,6 @@ export default function App() {
     handleSendMessage(`表单已提交：${formattedData}`);
   };
 
-  const clearChat = () => {
-    if (window.confirm("确定要清空所有消息吗？")) {
-      setMessages([INITIAL_MESSAGE]);
-    }
-  };
-
   return (
     <div className="w-full h-screen flex flex-col bg-slate-50 text-slate-900 overflow-hidden">
       {/* 顶部导航 */}
@@ -95,14 +88,6 @@ export default function App() {
           </div>
           <h2 className="font-semibold text-slate-800">对话会话</h2>
         </div>
-
-        <button
-          onClick={clearChat}
-          className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all"
-          title="清空聊天记录"
-        >
-          <Trash2 size={20} />
-        </button>
       </header>
 
       {/* 主体区域 */}

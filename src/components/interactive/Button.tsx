@@ -35,6 +35,7 @@ export const Button = memo(function Button({
       theme="light"
       onClick={handleClick}
       style={style}
+      type={(props as any).primary ? "primary" : "tertiary"}
     >
       <ComponentNode node={props.child} surfaceId={surfaceId} />
     </SemiButton>

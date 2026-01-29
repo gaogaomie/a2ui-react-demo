@@ -34,7 +34,7 @@ export const Card = memo(function Card({
   };
 
   return (
-    <SemiCard className="a2ui-card" style={style} bodyStyle={bodyStyle}>
+    <SemiCard className="a2ui-card " style={style} bodyStyle={bodyStyle}>
       <ChildrenRender children={children} surfaceId={surfaceId} />
     </SemiCard>
   );

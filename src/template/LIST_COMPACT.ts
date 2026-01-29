@@ -1,0 +1,150 @@
+const LIST_COMPACT = [
+  {
+    surfaceUpdate: {
+      surfaceId: "main",
+      components: [
+        {
+          id: "root",
+          component: {
+            Column: {
+              children: {
+                explicitList: ["heading", "description", "user-list"],
+              },
+            },
+          },
+        },
+        {
+          id: "heading",
+          component: {
+            Text: {
+              text: {
+                literalString: "Dynamic List",
+              },
+              usageHint: "h2",
+            },
+          },
+        },
+        {
+          id: "description",
+          component: {
+            Text: {
+              text: {
+                literalString:
+                  "List items rendered from data using template binding with scoped paths.",
+              },
+              usageHint: "body",
+            },
+          },
+        },
+        {
+          id: "user-list",
+          component: {
+            List: {
+              children: {
+                template: {
+                  componentId: "user-card",
+                  dataBinding: "/users",
+                },
+              },
+              direction: "vertical",
+              alignment: "stretch",
+            },
+          },
+        },
+        {
+          id: "user-card",
+          component: {
+            Card: {
+              child: "user-content",
+            },
+          },
+        },
+        {
+          id: "user-content",
+          component: {
+            Column: {
+              children: {
+                explicitList: ["user-name", "user-email"],
+              },
+            },
+          },
+        },
+        {
+          id: "user-name",
+          component: {
+            Text: {
+              text: {
+                path: "name",
+              },
+              usageHint: "body",
+            },
+          },
+        },
+        {
+          id: "user-email",
+          component: {
+            Text: {
+              text: {
+                path: "email",
+              },
+              usageHint: "caption",
+            },
+          },
+        },
+      ],
+    },
+  },
+  {
+    dataModelUpdate: {
+      surfaceId: "main",
+      path: "users",
+      contents: [
+        {
+          key: "0",
+          valueMap: [
+            {
+              key: "name",
+              valueString: "Alice Johnson",
+            },
+            {
+              key: "email",
+              valueString: "alice@example.com",
+            },
+          ],
+        },
+        {
+          key: "1",
+          valueMap: [
+            {
+              key: "name",
+              valueString: "Bob Smith",
+            },
+            {
+              key: "email",
+              valueString: "bob@example.com",
+            },
+          ],
+        },
+        {
+          key: "2",
+          valueMap: [
+            {
+              key: "name",
+              valueString: "Carol White",
+            },
+            {
+              key: "email",
+              valueString: "carol@example.com",
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    beginRendering: {
+      surfaceId: "main",
+      root: "root",
+    },
+  },
+];

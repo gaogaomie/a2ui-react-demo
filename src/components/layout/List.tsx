@@ -17,6 +17,7 @@ export const List = memo(function List({
     display: "flex",
     flexDirection: direction === "horizontal" ? "row" : "column",
     gap: "8px",
+    padding: "8px",
     overflow: "auto",
     flex: node.weight ?? "initial",
   };
