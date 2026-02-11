@@ -1,5 +1,5 @@
 import type { Types } from "@a2ui/lit/0.8";
-import { Modal as SemiModal } from "@douyinfe/semi-ui";
+import { Modal as AntdModal } from "antd";
 import { memo, useState } from "react";
 import { ComponentNode } from "../../core/ComponentNode";
 import type { A2UIComponentProps } from "../../types";
@@ -29,15 +29,15 @@ export const Modal = memo(function Modal({
           <ComponentNode node={entryPointChild} surfaceId={surfaceId} />
         </div>
       )}
-      <SemiModal
-        visible={visible}
+      <AntdModal
+        open={visible}
         onCancel={() => setVisible(false)}
         footer={null}
       >
         {contentChild && (
           <ComponentNode node={contentChild} surfaceId={surfaceId} />
         )}
-      </SemiModal>
+      </AntdModal>
     </div>
   );
 });

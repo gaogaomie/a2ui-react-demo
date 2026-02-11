@@ -1,0 +1,292 @@
+[
+    {
+        "beginRendering": {
+            "surfaceId": "exam",
+            "root": "root-column",
+            "styles": {
+                "primaryColor": "#3f51b5",
+                "font": "Roboto"
+            }
+        }
+    },
+    {
+        "surfaceUpdate": {
+            "surfaceId": "exam",
+            "components": [
+                {
+                    "id": "root-column",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "header",
+                                    "single-choice-section",
+                                    "multi-choice-section",
+                                    "essay-section",
+                                    "submit-button"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "header",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "网络安全知识测试"
+                            },
+                            "usageHint": "h1"
+                        }
+                    }
+                },
+                {
+                    "id": "single-choice-section",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "single-choice-title",
+                                    "single-choice-question",
+                                    "single-choice-options"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "single-choice-title",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "一、单选题"
+                            },
+                            "usageHint": "h2"
+                        }
+                    }
+                },
+                {
+                    "id": "single-choice-question",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "1. 以下哪种加密方式属于对称加密？"
+                            },
+                            "usageHint": "h3"
+                        }
+                    }
+                },
+                {
+                    "id": "single-choice-options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/exam/singleChoiceAnswer"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. RSA"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. AES"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. ECC"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. DSA"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "multi-choice-section",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "multi-choice-title",
+                                    "multi-choice-question",
+                                    "multi-choice-options"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "multi-choice-title",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "二、多选题"
+                            },
+                            "usageHint": "h2"
+                        }
+                    }
+                },
+                {
+                    "id": "multi-choice-question",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "2. 以下哪些属于常见的网络攻击类型？（多选）"
+                            },
+                            "usageHint": "h3"
+                        }
+                    }
+                },
+                {
+                    "id": "multi-choice-options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/exam/multiChoiceAnswers"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. DDoS攻击"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. SQL注入"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 中间人攻击"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 钓鱼攻击"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 4
+                        }
+                    }
+                },
+                {
+                    "id": "essay-section",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "essay-title",
+                                    "essay-question",
+                                    "essay-input"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "essay-title",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "三、问答题"
+                            },
+                            "usageHint": "h2"
+                        }
+                    }
+                },
+                {
+                    "id": "essay-question",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "3. 请简述防火墙的工作原理及其主要功能。"
+                            },
+                            "usageHint": "h3"
+                        }
+                    }
+                },
+                {
+                    "id": "essay-input",
+                    "component": {
+                        "TextField": {
+                            "label": {
+                                "literalString": "您的回答"
+                            },
+                            "text": {
+                                "path": "/exam/essayAnswer"
+                            },
+                            "textFieldType": "longText"
+                        }
+                    }
+                },
+                {
+                    "id": "submit-button",
+                    "component": {
+                        "Button": {
+                            "child": "submit-button-text",
+                            "primary": true,
+                            "action": {
+                                "name": "submitExam",
+                                "context": [
+                                    {
+                                        "key": "answers",
+                                        "value": {
+                                            "path": "/exam"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "submit-button-text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "提交答案"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "dataModelUpdate": {
+            "surfaceId": "exam",
+            "path": "/exam",
+            "contents": [
+                {
+                    "key": "singleChoiceAnswer",
+                    "valueString": ""
+                },
+                {
+                    "key": "multiChoiceAnswers",
+                    "valueArray": []
+                },
+                {
+                    "key": "essayAnswer",
+                    "valueString": ""
+                }
+            ]
+        }
+    }
+]

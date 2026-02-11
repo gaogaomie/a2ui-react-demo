@@ -1,0 +1,14 @@
+diff --git a/node_modules/@a2ui/lit/dist/src/0.8/data/guards.js b/node_modules/@a2ui/lit/dist/src/0.8/data/guards.js
+index 84cfcf0..8dff5b7 100644
+--- a/node_modules/@a2ui/lit/dist/src/0.8/data/guards.js
++++ b/node_modules/@a2ui/lit/dist/src/0.8/data/guards.js
+@@ -59,8 +59,7 @@ export function isResolvedAudioPlayer(props) {
+ export function isResolvedButton(props) {
+     return (isObject(props) &&
+         "child" in props &&
+-        isAnyComponentNode(props.child) &&
+-        "action" in props);
++        isAnyComponentNode(props.child));
+ }
+ export function isResolvedCard(props) {
+     if (!isObject(props))

@@ -2,11 +2,14 @@ import { ComponentRegistry } from "./ComponentRegistry";
 
 // Content components
 import { AudioPlayer } from "../components/content/AudioPlayer";
+import { Chart } from "../components/content/Chart";
 import { Divider } from "../components/content/Divider";
 import { Icon } from "../components/content/Icon";
 import { Image } from "../components/content/Image";
 import { Text } from "../components/content/Text";
 import { Video } from "../components/content/Video";
+import { Empty } from "../components/content/Empty";
+import { Table } from "../components/content/Table";
 
 // Layout components
 import { Card } from "../components/layout/Card";
@@ -36,6 +39,9 @@ export function registerDefaultCatalog(registry: ComponentRegistry): void {
   registry.register("Divider", { component: Divider });
   registry.register("Video", { component: Video });
   registry.register("AudioPlayer", { component: AudioPlayer });
+  registry.register("Empty", { component: Empty });
+  registry.register("Table", { component: Table });
+  registry.register("Chart", { component: Chart });
 
   // Layout components
   registry.register("Row", { component: Row });

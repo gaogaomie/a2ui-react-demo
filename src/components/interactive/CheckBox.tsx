@@ -1,5 +1,5 @@
 import type { Types } from "@a2ui/lit/0.8";
-import { Checkbox as SemiCheckbox } from "@douyinfe/semi-ui";
+import { Checkbox as AntdCheckbox } from "antd";
 import { memo, useCallback, useEffect, useId, useState } from "react";
 import { useA2UIComponent } from "../../hooks/useA2UIComponent";
 import type { A2UIComponentProps } from "../../types";
@@ -53,14 +53,14 @@ export const CheckBox = memo(function CheckBox({
 
   // Use <section> container to match Lit renderer
   return (
-    <SemiCheckbox
+    <AntdCheckbox
       data-id={id}
       checked={checked ?? false}
       onChange={handleChange}
       style={style}
     >
       {label}
-    </SemiCheckbox>
+    </AntdCheckbox>
   );
 });
 

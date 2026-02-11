@@ -1,0 +1,548 @@
+[
+  {
+    "surfaceUpdate": {
+      "surfaceId": "main",
+      "components": [
+        {
+          "id": "root",
+          "component": {
+            "Column": {
+              "children": {
+                "explicitList": [
+                  "headerRow",
+                  "basicInfoCard",
+                  "accountInfoCard",
+                  "creditScoreRow",
+                  "transactionStatsRow",
+                  "notesCard"
+                ]
+              },
+              "alignment": "stretch",
+              "distribution": "start"
+            }
+          }
+        },
+        {
+          "id": "headerRow",
+          "component": {
+            "Row": {
+              "children": {
+                "explicitList": [
+                  "avatarImage",
+                  "customerNameText"
+                ]
+              },
+              "alignment": "center",
+              "distribution": "start"
+            }
+          }
+        },
+        {
+          "id": "avatarImage",
+          "component": {
+            "Image": {
+              "url": {
+                "path": "/customer/avatarUrl"
+              },
+              "fit": "cover",
+              "usageHint": "avatar"
+            }
+          }
+        },
+        {
+          "id": "customerNameText",
+          "component": {
+            "Text": {
+              "text": {
+                "path": "/customer/name"
+              },
+              "usageHint": "h2"
+            }
+          }
+        },
+        {
+          "id": "basicInfoCard",
+          "component": {
+            "Card": {
+              "child": "basicInfoColumn"
+            }
+          }
+        },
+        {
+          "id": "basicInfoColumn",
+          "component": {
+            "Column": {
+              "children": {
+                "explicitList": [
+                  "basicInfoTitle",
+                  "customerIdRow",
+                  "customerPhoneRow",
+                  "customerEmailRow",
+                  "customerAddressRow"
+                ]
+              },
+              "alignment": "start",
+              "distribution": "start"
+            }
+          }
+        },
+        {
+          "id": "basicInfoTitle",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "基本信息"
+              },
+              "usageHint": "h3"
+            }
+          }
+        },
+        {
+          "id": "customerIdRow",
+          "component": {
+            "Row": {
+              "children": {
+                "explicitList": [
+                  "customerIdLabel",
+                  "customerIdValueText"
+                ]
+              },
+              "alignment": "center",
+              "distribution": "start"
+            }
+          }
+        },
+        {
+          "id": "customerIdLabel",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "客户ID: "
+              }
+            }
+          }
+        },
+        {
+          "id": "customerIdValueText",
+          "component": {
+            "Text": {
+              "text": {
+                "path": "/customer/id"
+              }
+            }
+          }
+        },
+        {
+          "id": "customerPhoneRow",
+          "component": {
+            "Row": {
+              "children": {
+                "explicitList": [
+                  "customerPhoneLabel",
+                  "customerPhoneValueText"
+                ]
+              },
+              "alignment": "center",
+              "distribution": "start"
+            }
+          }
+        },
+        {
+          "id": "customerPhoneLabel",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "联系电话: "
+              }
+            }
+          }
+        },
+        {
+          "id": "customerPhoneValueText",
+          "component": {
+            "Text": {
+              "text": {
+                "path": "/customer/phone"
+              }
+            }
+          }
+        },
+        {
+          "id": "customerEmailRow",
+          "component": {
+            "Row": {
+              "children": {
+                "explicitList": [
+                  "customerEmailLabel",
+                  "customerEmailValueText"
+                ]
+              },
+              "alignment": "center",
+              "distribution": "start"
+            }
+          }
+        },
+        {
+          "id": "customerEmailLabel",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "邮箱: "
+              }
+            }
+          }
+        },
+        {
+          "id": "customerEmailValueText",
+          "component": {
+            "Text": {
+              "text": {
+                "path": "/customer/email"
+              }
+            }
+          }
+        },
+        {
+          "id": "customerAddressRow",
+          "component": {
+            "Row": {
+              "children": {
+                "explicitList": [
+                  "customerAddressLabel",
+                  "customerAddressValueText"
+                ]
+              },
+              "alignment": "center",
+              "distribution": "start"
+            }
+          }
+        },
+        {
+          "id": "customerAddressLabel",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "地址: "
+              }
+            }
+          }
+        },
+        {
+          "id": "customerAddressValueText",
+          "component": {
+            "Text": {
+              "text": {
+                "path": "/customer/address"
+              }
+            }
+          }
+        },
+        {
+          "id": "accountInfoCard",
+          "component": {
+            "Card": {
+              "child": "accountInfoColumn"
+            }
+          }
+        },
+        {
+          "id": "accountInfoColumn",
+          "component": {
+            "Column": {
+              "children": {
+                "explicitList": [
+                  "accountInfoTitle",
+                  "accountsList"
+                ]
+              },
+              "alignment": "start",
+              "distribution": "start"
+            }
+          }
+        },
+        {
+          "id": "accountInfoTitle",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "账户信息"
+              },
+              "usageHint": "h3"
+            }
+          }
+        },
+        {
+          "id": "accountsList",
+          "component": {
+            "List": {
+              "children": {
+                "template": {
+                  "componentId": "accountItemTemplate",
+                  "dataBinding": "/customer/accounts"
+                }
+              },
+              "direction": "vertical",
+              "alignment": "start"
+            }
+          }
+        },
+        {
+          "id": "accountItemTemplate",
+          "component": {
+            "Row": {
+              "children": {
+                "explicitList": [
+                  "accountTypeText",
+                  "accountBalanceText",
+                  "accountOpenedDateText"
+                ]
+              },
+              "alignment": "center",
+              "distribution": "spaceBetween"
+            }
+          }
+        },
+        {
+          "id": "accountTypeText",
+          "component": {
+            "Text": {
+              "text": {
+                "path": "/type"
+              }
+            }
+          }
+        },
+        {
+          "id": "accountBalanceText",
+          "component": {
+            "Text": {
+              "text": {
+                "path": "/balance"
+              }
+            }
+          }
+        },
+        {
+          "id": "accountOpenedDateText",
+          "component": {
+            "Text": {
+              "text": {
+                "path": "/openedDate"
+              }
+            }
+          }
+        },
+        {
+          "id": "creditScoreRow",
+          "component": {
+            "Row": {
+              "children": {
+                "explicitList": [
+                  "creditScoreLabel",
+                  "creditScoreValue"
+                ]
+              },
+              "alignment": "center",
+              "distribution": "start"
+            }
+          }
+        },
+        {
+          "id": "creditScoreLabel",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "信用评分："
+              },
+              "usageHint": "body"
+            }
+          }
+        },
+        {
+          "id": "creditScoreValue",
+          "component": {
+            "Text": {
+              "text": {
+                "path": "/customer/creditScore"
+              },
+              "usageHint": "h3"
+            }
+          }
+        },
+        {
+          "id": "transactionStatsRow",
+          "component": {
+            "Row": {
+              "children": {
+                "explicitList": [
+                  "transactionCountLabel",
+                  "transactionCountValue",
+                  "transactionTotalLabel",
+                  "transactionTotalValue"
+                ]
+              },
+              "alignment": "center",
+              "distribution": "start"
+            }
+          }
+        },
+        {
+          "id": "transactionCountLabel",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "交易笔数："
+              }
+            }
+          }
+        },
+        {
+          "id": "transactionCountValue",
+          "component": {
+            "Text": {
+              "text": {
+                "path": "/customer/transactions/count"
+              }
+            }
+          }
+        },
+        {
+          "id": "transactionTotalLabel",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "交易总额："
+              }
+            }
+          }
+        },
+        {
+          "id": "transactionTotalValue",
+          "component": {
+            "Text": {
+              "text": {
+                "path": "/customer/transactions/totalAmount"
+              }
+            }
+          }
+        },
+        {
+          "id": "notesCard",
+          "component": {
+            "Card": {
+              "child": "notesText"
+            }
+          }
+        },
+        {
+          "id": "notesText",
+          "component": {
+            "Text": {
+              "text": {
+                "path": "/customer/notes"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "dataModelUpdate": {
+      "surfaceId": "main",
+      "path": "customer",
+      "contents": [
+        {
+          "key": "name",
+          "valueString": "张三"
+        },
+        {
+          "key": "avatarUrl",
+          "valueString": "https://picsum.photos/500/400"
+        },
+        {
+          "key": "id",
+          "valueString": "123456789"
+        },
+        {
+          "key": "phone",
+          "valueString": "13800000000"
+        },
+        {
+          "key": "email",
+          "valueString": "zhangsan@example.com"
+        },
+        {
+          "key": "address",
+          "valueString": "北京市朝阳区建国路88号"
+        },
+        {
+          "key": "accounts",
+          "valueMap": [
+            {
+              "key": "item1",
+              "valueMap": [
+                {
+                  "key": "type",
+                  "valueString": "储蓄账户"
+                },
+                {
+                  "key": "balance",
+                  "valueNumber": 12500.75
+                },
+                {
+                  "key": "openedDate",
+                  "valueString": "2015-06-15"
+                }
+              ]
+            },
+            {
+              "key": "item2",
+              "valueMap": [
+                {
+                  "key": "type",
+                  "valueString": "信用卡账户"
+                },
+                {
+                  "key": "balance",
+                  "valueNumber": -3500
+                },
+                {
+                  "key": "openedDate",
+                  "valueString": "2018-09-20"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "creditScore",
+          "valueNumber": 720
+        },
+        {
+          "key": "transactions",
+          "valueMap": [
+            {
+              "key": "count",
+              "valueNumber": 150
+            },
+            {
+              "key": "totalAmount",
+              "valueNumber": 350000
+            }
+          ]
+        },
+        {
+          "key": "notes",
+          "valueString": "客户信用良好，活跃客户。"
+        }
+      ]
+    }
+  },
+  {
+    "beginRendering": {
+      "surfaceId": "main",
+      "root": "root"
+    }
+  }
+]

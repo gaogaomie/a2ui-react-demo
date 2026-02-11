@@ -1,5 +1,5 @@
 import type { Types } from "@a2ui/lit/0.8";
-import { Card as SemiCard } from "@douyinfe/semi-ui";
+import { Card as AntdCard } from "antd";
 import { memo } from "react";
 import type { A2UIComponentProps } from "../../types";
 import ChildrenRender from "../ChildrenRender";
@@ -34,9 +34,9 @@ export const Card = memo(function Card({
   };
 
   return (
-    <SemiCard className="a2ui-card " style={style} bodyStyle={bodyStyle}>
+    <AntdCard className="a2ui-card " style={style} bodyStyle={bodyStyle}>
       <ChildrenRender children={children} surfaceId={surfaceId} />
-    </SemiCard>
+    </AntdCard>
   );
 });
 

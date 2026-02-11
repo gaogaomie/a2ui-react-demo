@@ -60,7 +60,7 @@ export function TestRenderer({
   surfaceId?: string;
 }) {
   const { processMessages } = useA2UI();
-  console.log("TestRenderer", messages);
+
   useEffect(() => {
     processMessages(messages);
   }, [messages, processMessages]);

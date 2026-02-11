@@ -1,0 +1,201 @@
+[
+    {
+        "beginRendering": {
+            "surfaceId": "managerProfile",
+            "root": "tableCard",
+            "styles": {
+                "primaryColor": "#1E88E5",
+                "font": "Roboto"
+            }
+        }
+    },
+    {
+        "surfaceUpdate": {
+            "surfaceId": "managerProfile",
+            "components": [
+                {
+                    "id": "tableCard",
+                    "component": {
+                        "Card": {
+                            "child": "tableColumn"
+                        }
+                    }
+                },
+                {
+                    "id": "tableColumn",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "tableTitle",
+                                    "dataTable"
+                                ]
+                            },
+                            "alignment": "start",
+                            "distribution": "start"
+                        }
+                    }
+                },
+                {
+                    "id": "tableTitle",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "销售数据统计"
+                            },
+                            "usageHint": "h2"
+                        }
+                    }
+                },
+                {
+                    "id": "dataTable",
+                    "component": {
+                        "Table": {
+                            "dataSourcePath": "/tableData",
+                            "columns": [
+                                {
+                                    "title": "产品名称",
+                                    "dataIndex": "productName",
+                                    "key": "productName"
+                                },
+                                {
+                                    "title": "销售数量",
+                                    "dataIndex": "sales",
+                                    "key": "sales"
+                                },
+                                {
+                                    "title": "销售额（万元）",
+                                    "dataIndex": "revenue",
+                                    "key": "revenue"
+                                },
+                                {
+                                    "title": "增长率",
+                                    "dataIndex": "growth",
+                                    "key": "growth"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "dataModelUpdate": {
+            "surfaceId": "managerProfile",
+            "path": "/",
+            "contents": [
+                {
+                    "key": "tableData",
+                    "valueMap": [
+                        {
+                            "key": "0",
+                            "valueMap": [
+                                {
+                                    "key": "productName",
+                                    "valueString": "理财产品A"
+                                },
+                                {
+                                    "key": "sales",
+                                    "valueNumber": 1250
+                                },
+                                {
+                                    "key": "revenue",
+                                    "valueNumber": 1250
+                                },
+                                {
+                                    "key": "growth",
+                                    "valueString": "+12%"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "1",
+                            "valueMap": [
+                                {
+                                    "key": "productName",
+                                    "valueString": "定期存款"
+                                },
+                                {
+                                    "key": "sales",
+                                    "valueNumber": 890
+                                },
+                                {
+                                    "key": "revenue",
+                                    "valueNumber": 890
+                                },
+                                {
+                                    "key": "growth",
+                                    "valueString": "+8%"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "2",
+                            "valueMap": [
+                                {
+                                    "key": "productName",
+                                    "valueString": "信用卡"
+                                },
+                                {
+                                    "key": "sales",
+                                    "valueNumber": 2100
+                                },
+                                {
+                                    "key": "revenue",
+                                    "valueNumber": 420
+                                },
+                                {
+                                    "key": "growth",
+                                    "valueString": "+15%"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "3",
+                            "valueMap": [
+                                {
+                                    "key": "productName",
+                                    "valueString": "个人贷款"
+                                },
+                                {
+                                    "key": "sales",
+                                    "valueNumber": 560
+                                },
+                                {
+                                    "key": "revenue",
+                                    "valueNumber": 112
+                                },
+                                {
+                                    "key": "growth",
+                                    "valueString": "-3%"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "4",
+                            "valueMap": [
+                                {
+                                    "key": "productName",
+                                    "valueString": "基金代销"
+                                },
+                                {
+                                    "key": "sales",
+                                    "valueNumber": 780
+                                },
+                                {
+                                    "key": "revenue",
+                                    "valueNumber": 390
+                                },
+                                {
+                                    "key": "growth",
+                                    "valueString": "+6%"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

@@ -1,5 +1,5 @@
 import type { Types } from "@a2ui/lit/0.8";
-import { DatePicker, TimePicker } from "@douyinfe/semi-ui";
+import { DatePicker, TimePicker } from "antd";
 import { memo, useCallback, useEffect, useId, useState } from "react";
 import { useA2UIComponent } from "../../hooks/useA2UIComponent";
 import type { A2UIComponentProps } from "../../types";
@@ -43,8 +43,8 @@ export const DateTimeInput = memo(function DateTimeInput({
   }, [valuePath, getValue]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const newValue = e.target.value;
+    (value: React.ChangeEvent<HTMLInputElement>) => {
+      const newValue = value;
       setLocalValue(newValue);
 
       // Two-way binding: update data model
@@ -63,15 +63,21 @@ export const DateTimeInput = memo(function DateTimeInput({
     inputType = "time";
   }
 
+  console.log("DateTimeInput", {
+    enableDate,
+    enableTime,
+    inputType,
+  });
   // Date and Time
   if (enableDate && enableTime) {
     return (
       <div data-id={component.id}>
         <DatePicker
-          type="dateTime"
+          mode={inputType}
           value={value}
           onChange={handleChange}
           style={style}
+          showTime={enableTime}
         />
       </div>
     );
@@ -90,7 +96,7 @@ export const DateTimeInput = memo(function DateTimeInput({
   return (
     <div data-id={component.id}>
       <DatePicker
-        type="date"
+        mode={inputType}
         value={value}
         onChange={handleChange}
         style={style}

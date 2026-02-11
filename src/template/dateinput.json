@@ -1,0 +1,145 @@
+[
+  {
+    "surfaceUpdate": {
+      "surfaceId": "main",
+      "components": [
+        {
+          "id": "root",
+          "component": {
+            "Column": {
+              "children": {
+                "explicitList": [
+                  "heading",
+                  "description",
+                  "date-only-label",
+                  "date-only",
+                  "time-only-label",
+                  "time-only",
+                  "datetime-label",
+                  "datetime"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "heading",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "DateTime Input Component"
+              },
+              "usageHint": "h2"
+            }
+          }
+        },
+        {
+          "id": "description",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "Select dates and times with different configurations."
+              },
+              "usageHint": "body"
+            }
+          }
+        },
+        {
+          "id": "date-only-label",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "Date Only:"
+              },
+              "usageHint": "caption"
+            }
+          }
+        },
+        {
+          "id": "date-only",
+          "component": {
+            "DateTimeInput": {
+              "value": {
+                "path": "/dateOnly"
+              },
+              "enableDate": true,
+              "enableTime": false
+            }
+          }
+        },
+        {
+          "id": "time-only-label",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "Time Only:"
+              },
+              "usageHint": "caption"
+            }
+          }
+        },
+        {
+          "id": "time-only",
+          "component": {
+            "DateTimeInput": {
+              "value": {
+                "path": "/timeOnly"
+              },
+              "enableDate": false,
+              "enableTime": true
+            }
+          }
+        },
+        {
+          "id": "datetime-label",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "Date and Time:"
+              },
+              "usageHint": "caption"
+            }
+          }
+        },
+        {
+          "id": "datetime",
+          "component": {
+            "DateTimeInput": {
+              "value": {
+                "path": "/datetime"
+              },
+              "enableDate": true,
+              "enableTime": true
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "dataModelUpdate": {
+      "surfaceId": "main",
+      "path": "/",
+      "contents": [
+        {
+          "key": "dateOnly",
+          "valueString": ""
+        },
+        {
+          "key": "timeOnly",
+          "valueString": ""
+        },
+        {
+          "key": "datetime",
+          "valueString": ""
+        }
+      ]
+    }
+  },
+  {
+    "beginRendering": {
+      "surfaceId": "main",
+      "root": "root"
+    }
+  }
+]

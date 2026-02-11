@@ -1,0 +1,900 @@
+[
+    {
+        "surfaceUpdate": {
+            "surfaceId": "default",
+            "components": [
+                {
+                    "id": "root",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "header",
+                                    "examContent"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "header",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/examPaper/title"
+                            },
+                            "usageHint": "h1"
+                        }
+                    }
+                },
+                {
+                    "id": "examContent",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "singleChoiceSection",
+                                    "multipleChoiceSection",
+                                    "trueFalseSection"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "singleChoiceSection",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "singleChoiceTitle",
+                                    "singleChoiceList"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "singleChoiceTitle",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/examPaper/sections/0/title"
+                            },
+                            "usageHint": "h2"
+                        }
+                    }
+                },
+                {
+                    "id": "singleChoiceList",
+                    "component": {
+                        "List": {
+                            "direction": "vertical",
+                            "children": {
+                                "template": {
+                                    "componentId": "singleQuestion",
+                                    "dataBinding": "/examPaper/sections/0/questions"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "singleQuestion",
+                    "component": {
+                        "Card": {
+                            "child": "singleQuestionContent"
+                        }
+                    }
+                },
+                {
+                    "id": "singleQuestionContent",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "questionText",
+                                    "optionsList"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "questionText",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "content"
+                            },
+                            "usageHint": "h3"
+                        }
+                    }
+                },
+                {
+                    "id": "optionsList",
+                    "component": {
+                        "List": {
+                            "direction": "vertical",
+                            "children": {
+                                "template": {
+                                    "componentId": "singleOption",
+                                    "dataBinding": "options"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "singleOption",
+                    "component": {
+                        "CheckBox": {
+                            "label": {
+                                "path": "."
+                            },
+                            "value": {
+                                "literalBoolean": false
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "multipleChoiceSection",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "multipleChoiceTitle",
+                                    "multipleChoiceList"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "multipleChoiceTitle",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/examPaper/sections/1/title"
+                            },
+                            "usageHint": "h2"
+                        }
+                    }
+                },
+                {
+                    "id": "multipleChoiceList",
+                    "component": {
+                        "List": {
+                            "direction": "vertical",
+                            "children": {
+                                "template": {
+                                    "componentId": "multipleQuestion",
+                                    "dataBinding": "/examPaper/sections/1/questions"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "multipleQuestion",
+                    "component": {
+                        "Card": {
+                            "child": "multipleQuestionContent"
+                        }
+                    }
+                },
+                {
+                    "id": "multipleQuestionContent",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "multipleQuestionText",
+                                    "multipleOptionsList"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "multipleQuestionText",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "content"
+                            },
+                            "usageHint": "h3"
+                        }
+                    }
+                },
+                {
+                    "id": "multipleOptionsList",
+                    "component": {
+                        "List": {
+                            "direction": "vertical",
+                            "children": {
+                                "template": {
+                                    "componentId": "multipleOption",
+                                    "dataBinding": "options"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "multipleOption",
+                    "component": {
+                        "CheckBox": {
+                            "label": {
+                                "path": "."
+                            },
+                            "value": {
+                                "literalBoolean": false
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "trueFalseSection",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "trueFalseTitle",
+                                    "trueFalseList"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "trueFalseTitle",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/examPaper/sections/2/title"
+                            },
+                            "usageHint": "h2"
+                        }
+                    }
+                },
+                {
+                    "id": "trueFalseList",
+                    "component": {
+                        "List": {
+                            "direction": "vertical",
+                            "children": {
+                                "template": {
+                                    "componentId": "trueFalseQuestion",
+                                    "dataBinding": "/examPaper/sections/2/questions"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "trueFalseQuestion",
+                    "component": {
+                        "Card": {
+                            "child": "trueFalseQuestionContent"
+                        }
+                    }
+                },
+                {
+                    "id": "trueFalseQuestionContent",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "trueFalseQuestionText",
+                                    "trueFalseOptions"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "trueFalseQuestionText",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "content"
+                            },
+                            "usageHint": "h3"
+                        }
+                    }
+                },
+                {
+                    "id": "trueFalseOptions",
+                    "component": {
+                        "Row": {
+                            "children": {
+                                "explicitList": [
+                                    "trueOption",
+                                    "falseOption"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "trueOption",
+                    "component": {
+                        "CheckBox": {
+                            "label": {
+                                "literalString": "正确"
+                            },
+                            "value": {
+                                "literalBoolean": false
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "falseOption",
+                    "component": {
+                        "CheckBox": {
+                            "label": {
+                                "literalString": "错误"
+                            },
+                            "value": {
+                                "literalBoolean": false
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "dataModelUpdate": {
+            "surfaceId": "default",
+            "path": "/",
+            "contents": [
+                {
+                    "key": "examPaper.title",
+                    "valueString": "小微贷产品培训考试试卷"
+                },
+                {
+                    "key": "examPaper.sections.0.title",
+                    "valueString": "一、单选题（每题4分，共60分）"
+                },
+                {
+                    "key": "examPaper.sections.0.questions",
+                    "valueMap": [
+                        {
+                            "key": "0",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 1
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷产品的主要依据文件不包括以下哪项？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 《江苏省普惠金融发展风险补偿基金管理办法》",
+                                        "B. 《江苏省小微贷工作方案(2025-2027年)》",
+                                        "C. 《商业银行资本管理办法》",
+                                        "D. 省联社有关信贷业务管理制度"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "1",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 2
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷产品的适用对象是？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 江苏省内所有企业",
+                                        "B. 江苏省内注册的小型、微型企业",
+                                        "C. 全国范围内的小微企业",
+                                        "D. 江苏省内大型企业"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "2",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 3
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷产品的主要用途是？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 固定资产投资",
+                                        "B. 生产经营周转",
+                                        "C. 个人消费",
+                                        "D. 房地产开发"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "3",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 4
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "以下哪个部门负责小微贷业务的审查、审批？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 公司银行部",
+                                        "B. 经办支行",
+                                        "C. 授信审批部",
+                                        "D. 信贷管理部"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "4",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 5
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷业务的管理依托于哪个平台实现？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 江苏省综合金融服务平台",
+                                        "B. 人民银行征信系统",
+                                        "C. 银保监会监管系统",
+                                        "D. 本行内部管理系统"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "5",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 6
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微企业的划型标准依据是？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 《商业银行小微企业贷款管理办法》",
+                                        "B. 《关于印发中小企业划型标准规定的通知》",
+                                        "C. 《小微企业贷款风险管理办法》",
+                                        "D. 《江苏省小微企业认定标准》"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "6",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 7
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "公司银行部在小微贷业务中的职责不包括？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 对接风险补偿金管理机构",
+                                        "B. 制定实施细则",
+                                        "C. 直接办理贷款业务",
+                                        "D. 指导支行营销拓展"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "7",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 8
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "信贷管理部主要负责小微贷业务的哪个环节？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 营销拓展",
+                                        "B. 贷中、贷后管理",
+                                        "C. 审查审批",
+                                        "D. 风险补偿"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "8",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 9
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷产品的实施细则是哪个版本的？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 1.0版",
+                                        "B. 2.0版",
+                                        "C. 3.0版",
+                                        "D. 4.0版"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "9",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 10
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷业务经办行包括？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 江苏省内支行(含二级支行)",
+                                        "B. 全国所有分支机构",
+                                        "C. 仅总行营业部",
+                                        "D. 仅一级支行"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "10",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 11
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "以下哪项不是小微贷产品的特点？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 短期流动资金贷款",
+                                        "B. 用于生产经营周转",
+                                        "C. 长期固定资产贷款",
+                                        "D. 面向小微企业"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "11",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 12
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "风险补偿工作主要由哪个部门协助进行？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 授信审批部",
+                                        "B. 公司银行部",
+                                        "C. 信贷管理部",
+                                        "D. 经办支行"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "12",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 13
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷产品的管理平台全称是？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 江苏省普惠金融发展风险补偿基金专版",
+                                        "B. 江苏省小微企业金融服务平台",
+                                        "C. 江苏省银行信贷管理系统",
+                                        "D. 江苏省金融监管平台"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "13",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 14
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷实施细则的制定和解释由哪个部门负责？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 授信审批部",
+                                        "B. 公司银行部",
+                                        "C. 信贷管理部",
+                                        "D. 风险管理部门"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "14",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 15
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷业务的服务对象必须位于？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 本行实体经营支行辖区之内",
+                                        "B. 江苏省内任意地区",
+                                        "C. 长三角地区",
+                                        "D. 全国范围内"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "examPaper.sections.1.title",
+                    "valueString": "二、多选题（每题4分，共20分）"
+                },
+                {
+                    "key": "examPaper.sections.1.questions",
+                    "valueMap": [
+                        {
+                            "key": "0",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 16
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷产品的依据文件包括？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 《江苏省普惠金融发展风险补偿基金管理办法》",
+                                        "B. 《江苏省小微贷工作方案(2025-2027年)》",
+                                        "C. 国家法律法规",
+                                        "D. 省联社有关信贷业务管理制度"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "1",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 17
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "以下哪些部门参与小微贷业务管理？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 公司银行部",
+                                        "B. 经办支行",
+                                        "C. 授信审批部",
+                                        "D. 信贷管理部"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "2",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 18
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷产品的特点包括？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 面向小微企业",
+                                        "B. 用于生产经营周转",
+                                        "C. 短期流动资金贷款",
+                                        "D. 依托信息化平台管理"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "3",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 19
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "关于小微贷业务经办行，以下说法正确的是？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 包括江苏省内支行",
+                                        "B. 包括二级支行",
+                                        "C. 负责贷款业务办理",
+                                        "D. 负责风险补偿工作"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "key": "4",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 20
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷业务管理涉及的主要环节包括？"
+                                },
+                                {
+                                    "key": "options",
+                                    "valueArray": [
+                                        "A. 营销拓展",
+                                        "B. 审查审批",
+                                        "C. 贷中管理",
+                                        "D. 贷后管理"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "key": "examPaper.sections.2.title",
+                    "valueString": "三、判断题（每题4分，共20分）"
+                },
+                {
+                    "key": "examPaper.sections.2.questions",
+                    "valueMap": [
+                        {
+                            "key": "0",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 21
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷产品可以用于房地产开发。"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "1",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 22
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "公司银行部是小微贷业务的牵头部门。"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "2",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 23
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷业务可以面向全国范围内的小微企业。"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "3",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 24
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "信贷管理部负责小微贷业务的贷前调查工作。"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "4",
+                            "valueMap": [
+                                {
+                                    "key": "id",
+                                    "valueNumber": 25
+                                },
+                                {
+                                    "key": "content",
+                                    "valueString": "小微贷业务依托江苏省综合金融服务平台实现全流程信息化管理。"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "beginRendering": {
+            "surfaceId": "default",
+            "root": "root"
+        }
+    }
+]

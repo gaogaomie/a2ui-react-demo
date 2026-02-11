@@ -1,5 +1,5 @@
 import type { Types } from "@a2ui/lit/0.8";
-import { Image as SemiImage } from "@douyinfe/semi-ui";
+import { Image as AntdImage } from "antd";
 import { memo } from "react";
 import { useA2UIComponent } from "../../hooks/useA2UIComponent";
 import type { A2UIComponentProps } from "../../types";
@@ -23,7 +23,7 @@ export const Image = memo(function Image({
   node,
   surfaceId,
 }: A2UIComponentProps<Types.ImageNode>) {
-  const { theme, resolveString } = useA2UIComponent(node, surfaceId);
+  const { resolveString } = useA2UIComponent(node, surfaceId);
   const props = node.properties;
   const component = node as Types.ImageNode;
   const url = resolveString(props.url);
@@ -70,7 +70,7 @@ export const Image = memo(function Image({
   return (
     <div data-id={component.id} style={containerStyle}>
       <img src={url} alt="" />
-      <SemiImage src={url} width={"100%"} height={"100%"} preview={true} />
+      <AntdImage src={url} width={"100%"} height={"100%"} preview={true} />
     </div>
   );
 });

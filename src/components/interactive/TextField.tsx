@@ -1,9 +1,9 @@
 import type { Types } from "@a2ui/lit/0.8";
-import { Input, InputNumber, TextArea } from "@douyinfe/semi-ui";
+import { Input, InputNumber } from "antd";
 import { memo, useCallback, useEffect, useId, useState } from "react";
 import { useA2UIComponent } from "../../hooks/useA2UIComponent";
-import { classMapToString, stylesToObject } from "../../lib/utils";
 import type { A2UIComponentProps } from "../../types";
+const { TextArea } = Input;
 
 type TextFieldType = "shortText" | "longText" | "number" | "date";
 
@@ -23,14 +23,13 @@ export const TextField = memo(function TextField({
   );
   const props = node.properties;
   const id = useId();
-  const type = props.type as TextFieldType | undefined;
+  const type =
+    (props.type as TextFieldType | undefined) || props?.textFieldType;
   const text = props.text;
   const label = resolveString(props.label);
   const textPath = props.text?.path;
   const initialValue = resolveString(props.text) ?? "";
-  const fieldType = props.type as TextFieldType | undefined;
   const validationRegexp = props.validationRegexp;
-
   const [value, setLocalValue] = useState(initialValue);
   const [isValid, setIsValid] = useState(true);
 
@@ -45,8 +44,9 @@ export const TextField = memo(function TextField({
   }, [textPath, getValue]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleChange = useCallback(
-    (val: string) => {
-      const newValue = val;
+    (e: string) => {
+      console.log("handleChange", e.target.value);
+      const newValue = e.target.value;
       setLocalValue(newValue);
 
       // Validate if pattern provided
@@ -61,10 +61,6 @@ export const TextField = memo(function TextField({
     },
     [validationRegexp, textPath, setValue],
   );
-
-  const inputType =
-    fieldType === "number" ? "number" : fieldType === "date" ? "date" : "text";
-  const isTextArea = fieldType === "longText";
 
   const style: React.CSSProperties = {
     flex: component.weight ?? "initial",

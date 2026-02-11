@@ -1,149 +1,215 @@
 import type { Types } from "@a2ui/lit/0.8";
-import * as Icons from "@douyinfe/semi-icons";
+import * as AntIcons from "@ant-design/icons";
 import { memo } from "react";
 import { useA2UIComponent } from "../../hooks/useA2UIComponent";
+import { classMapToString, stylesToObject } from "../../lib/utils";
 import type { A2UIComponentProps } from "../../types";
 
-type IconComponentType = typeof Icons.IconPlus;
-
-// Map A2UI standard icon names to Semi UI icons
-// Reference: A2UI specification/0.9/json/standard_catalog_definition.json
-const iconMap: Record<string, IconComponentType> = {
-  // === A2UI Standard Icons (camelCase) ===
-  accountcircle: Icons.IconUser,
-  add: Icons.IconPlus,
-  arrowback: Icons.IconArrowLeft,
-  arrowforward: Icons.IconArrowRight,
-  attachfile: Icons.IconPaperclip,
-  calendartoday: Icons.IconCalendar,
-  call: Icons.IconPhone,
-  camera: Icons.IconCamera,
-  check: Icons.IconTick,
-  close: Icons.IconClose,
-  delete: Icons.IconDelete,
-  download: Icons.IconDownload,
-  edit: Icons.IconEdit,
-  event: Icons.IconCalendar,
-  error: Icons.IconAlertTriangle,
-  fastforward: Icons.IconFastForward,
-  favorite: Icons.IconLikeHeart,
-  favoriteoff: Icons.IconLikeHeart,
-  folder: Icons.IconFolder,
-  help: Icons.IconHelpCircle,
-  home: Icons.IconHome,
-  info: Icons.IconInfoCircle,
-  locationon: Icons.IconMapPin,
-  lock: Icons.IconLock,
-  lockopen: Icons.IconUnlock,
-  mail: Icons.IconMail,
-  menu: Icons.IconMenu,
-  morevert: Icons.IconMoreStroked,
-  morehoriz: Icons.IconMore,
-  notificationsoff: Icons.IconBellStroked,
-  notifications: Icons.IconBell,
-  pause: Icons.IconPause,
-  payment: Icons.IconCreditCard,
-  person: Icons.IconUser,
-  phone: Icons.IconPhone,
-  photo: Icons.IconImage,
-  play: Icons.IconPlay,
-  print: Icons.IconPrint,
-  refresh: Icons.IconRefresh,
-  rewind: Icons.IconBackward,
-  search: Icons.IconSearch,
-  send: Icons.IconSend,
-  settings: Icons.IconSetting,
-  share: Icons.IconShareStroked,
-  shoppingcart: Icons.IconShoppingBag,
-  skipnext: Icons.IconForward,
-  skipprevious: Icons.IconBackward,
-  star: Icons.IconStar,
-  starhalf: Icons.IconStar,
-  staroff: Icons.IconStarStroked,
-  stop: Icons.IconStop,
-  upload: Icons.IconUpload,
-  visibility: Icons.IconEyeOpened,
-  visibilityoff: Icons.IconEyeClosedSolid,
-  volumedown: Icons.IconVolume1,
-  volumemute: Icons.IconVolumnSilent,
-  volumeoff: Icons.IconVolumnSilent,
-  volumeup: Icons.IconVolume2,
-  warning: Icons.IconAlertCircle,
-
-  // === Additional common aliases ===
-  plus: Icons.IconPlus,
-  user: Icons.IconUser,
-  like: Icons.IconLikeHeart,
-  heart: Icons.IconLikeHeart,
-  success: Icons.IconTickCircle,
-  "arrow-left": Icons.IconArrowLeft,
-  "arrow-right": Icons.IconArrowRight,
-  "arrow-up": Icons.IconArrowUp,
-  "arrow-down": Icons.IconArrowDown,
-  "chevron-left": Icons.IconChevronLeft,
-  "chevron-right": Icons.IconChevronRight,
-  "chevron-up": Icons.IconChevronUp,
-  "chevron-down": Icons.IconChevronDown,
-  more: Icons.IconMore,
-  copy: Icons.IconCopy,
-  calendar: Icons.IconCalendar,
-  clock: Icons.IconClock,
-  location: Icons.IconMapPin,
-  link: Icons.IconLink,
-  image: Icons.IconImage,
-  video: Icons.IconVideo,
-  file: Icons.IconFile,
-};
-
 /**
- * Normalize icon name to match iconMap keys.
- * Handles both camelCase (A2UI spec) and snake_case (Material Icons style).
- * Examples:
- *   - "locationOn" → "locationon"
- *   - "location_on" → "locationon"
- *   - "calendar_today" → "calendartoday"
+ * 将首字母大写，适配 Ant Design 图标命名
+ * e.g., "shoppingCart" -> "ShoppingCart"
  */
-function normalizeIconName(name: string): string {
-  // Remove underscores/hyphens and convert to lowercase
-  return name.replace(/[_-]/g, "").toLowerCase();
+function toPascalCase(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 /**
- * Icon component - renders an icon using Material Symbols Outlined font.
+ * 获取 Ant Design 图标组件
+ * @param name 图标名称（camelCase 或 PascalCase）
+ * @returns 图标组件或 null
+ */
+function getAntIcon(name: string): React.ComponentType<any> | null {
+  // 转换为 PascalCase
+  const pascalName = toPascalCase(name);
+
+  // Ant Design 图标映射表
+  const iconMap: Record<string, React.ComponentType<any>> = {
+    // 常用图标
+    home: AntIcons.HomeOutlined,
+    user: AntIcons.UserOutlined,
+    settings: AntIcons.SettingOutlined,
+    search: AntIcons.SearchOutlined,
+    plus: AntIcons.PlusOutlined,
+    minus: AntIcons.MinusOutlined,
+    close: AntIcons.CloseOutlined,
+    check: AntIcons.CheckOutlined,
+    info: AntIcons.InfoCircleOutlined,
+    warning: AntIcons.WarningOutlined,
+    error: AntIcons.CloseCircleOutlined,
+    success: AntIcons.CheckCircleOutlined,
+    star: AntIcons.StarOutlined,
+    starFilled: AntIcons.StarFilled,
+    heart: AntIcons.HeartOutlined,
+    heartFilled: AntIcons.HeartFilled,
+    delete: AntIcons.DeleteOutlined,
+    edit: AntIcons.EditOutlined,
+    save: AntIcons.SaveOutlined,
+    download: AntIcons.DownloadOutlined,
+    upload: AntIcons.UploadOutlined,
+    share: AntIcons.ShareAltOutlined,
+    copy: AntIcons.CopyOutlined,
+    link: AntIcons.LinkOutlined,
+
+    mail: AntIcons.MailOutlined,
+    phone: AntIcons.PhoneOutlined,
+    location: AntIcons.EnvironmentOutlined,
+    calendar: AntIcons.CalendarOutlined,
+    clock: AntIcons.ClockCircleOutlined,
+    arrowRight: AntIcons.ArrowRightOutlined,
+    arrowLeft: AntIcons.ArrowLeftOutlined,
+    arrowUp: AntIcons.ArrowUpOutlined,
+    arrowDown: AntIcons.ArrowDownOutlined,
+    menu: AntIcons.MenuOutlined,
+    more: AntIcons.MoreOutlined,
+    filter: AntIcons.FilterOutlined,
+    sort: AntIcons.SortAscendingOutlined,
+    refresh: AntIcons.ReloadOutlined,
+    zoomIn: AntIcons.ZoomInOutlined,
+    zoomOut: AntIcons.ZoomOutOutlined,
+    folder: AntIcons.FolderOutlined,
+    file: AntIcons.FileOutlined,
+    image: AntIcons.FileImageOutlined,
+    video: AntIcons.VideoCameraOutlined,
+    audio: AntIcons.AudioOutlined,
+    lock: AntIcons.LockOutlined,
+    unlock: AntIcons.UnlockOutlined,
+    eye: AntIcons.EyeOutlined,
+    eyeInvisible: AntIcons.EyeInvisibleOutlined,
+    bell: AntIcons.BellOutlined,
+    gift: AntIcons.GiftOutlined,
+    tag: AntIcons.TagOutlined,
+    tags: AntIcons.TagsOutlined,
+    dashboard: AntIcons.DashboardOutlined,
+    chart: AntIcons.LineChartOutlined,
+    table: AntIcons.TableOutlined,
+    list: AntIcons.UnorderedListOutlined,
+    grid: AntIcons.AppstoreOutlined,
+    shop: AntIcons.ShopOutlined,
+    cart: AntIcons.ShoppingCartOutlined,
+    wallet: AntIcons.WalletOutlined,
+    bank: AntIcons.BankOutlined,
+    creditCard: AntIcons.CreditCardOutlined,
+    security: AntIcons.SafetyOutlined,
+    help: AntIcons.QuestionCircleOutlined,
+    support: AntIcons.CustomerServiceOutlined,
+    document: AntIcons.FileTextOutlined,
+    folderOpen: AntIcons.FolderOpenOutlined,
+    cloud: AntIcons.CloudOutlined,
+    cloudDownload: AntIcons.CloudDownloadOutlined,
+    cloudUpload: AntIcons.CloudUploadOutlined,
+    wifi: AntIcons.WifiOutlined,
+
+    volume: AntIcons.SoundOutlined,
+    mute: AntIcons.StopOutlined,
+    play: AntIcons.PlayCircleOutlined,
+    pause: AntIcons.PauseCircleOutlined,
+
+    forward: AntIcons.ForwardOutlined,
+    backward: AntIcons.BackwardOutlined,
+    skip: AntIcons.StepForwardOutlined,
+    rewind: AntIcons.StepBackwardOutlined,
+    fullScreen: AntIcons.FullscreenOutlined,
+    fullScreenExit: AntIcons.FullscreenExitOutlined,
+    scan: AntIcons.ScanOutlined,
+    qr: AntIcons.QrcodeOutlined,
+    barCode: AntIcons.BarcodeOutlined,
+    camera: AntIcons.CameraOutlined,
+
+    message: AntIcons.MessageOutlined,
+    notification: AntIcons.NotificationOutlined,
+    comment: AntIcons.CommentOutlined,
+    like: AntIcons.LikeOutlined,
+    dislike: AntIcons.DislikeOutlined,
+
+    plusCircle: AntIcons.PlusCircleOutlined,
+    minusCircle: AntIcons.MinusCircleOutlined,
+    closeCircle: AntIcons.CloseCircleOutlined,
+    checkCircle: AntIcons.CheckCircleOutlined,
+    infoCircle: AntIcons.InfoCircleOutlined,
+    warningCircle: AntIcons.WarningOutlined,
+    exclamationCircle: AntIcons.ExclamationCircleOutlined,
+    loading: AntIcons.LoadingOutlined,
+    sync: AntIcons.SyncOutlined,
+    redo: AntIcons.RedoOutlined,
+    undo: AntIcons.UndoOutlined,
+
+    alignLeft: AntIcons.AlignLeftOutlined,
+    alignCenter: AntIcons.AlignCenterOutlined,
+    alignRight: AntIcons.AlignRightOutlined,
+    bold: AntIcons.BoldOutlined,
+    italic: AntIcons.ItalicOutlined,
+    underline: AntIcons.UnderlineOutlined,
+    strikethrough: AntIcons.StrikethroughOutlined,
+    font: AntIcons.FontSizeOutlined,
+    color: AntIcons.BgColorsOutlined,
+    highlight: AntIcons.HighlightOutlined,
+    linkUrl: AntIcons.LinkOutlined,
+
+    orderedList: AntIcons.OrderedListOutlined,
+    unorderedList: AntIcons.UnorderedListOutlined,
+
+    code: AntIcons.CodeOutlined,
+    imagePlus: AntIcons.PictureOutlined,
+    videoPlus: AntIcons.VideoCameraAddOutlined,
+    attach: AntIcons.PaperClipOutlined,
+    paperclip: AntIcons.PaperClipOutlined,
+  };
+
+  // 先尝试精确匹配，再尝试不区分大小写
+  return (
+    iconMap[pascalName] ||
+    iconMap[name] ||
+    Object.entries(iconMap).find(
+      ([key]) => key.toLowerCase() === name.toLowerCase(),
+    )?.[1] ||
+    null
+  );
+}
+
+/**
+ * Icon component - renders an icon using Ant Design Icons.
  *
- * This matches the Lit renderer's approach using the g-icon class with
- * Material Symbols Outlined font.
+ * This matches the Ant Design icon library naming convention (PascalCase).
  *
- * @example Add Material Symbols font to your HTML:
- * ```html
- * <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
- * ```
+ * @example Usage with Ant Design icons:
+ * - "home" -> HomeOutlined icon
+ * - "user" -> UserOutlined icon
+ * - "shoppingCart" -> ShoppingCartOutlined icon
  */
 export const Icon = memo(function Icon({
   node,
   surfaceId,
 }: A2UIComponentProps<Types.IconNode>) {
-  const { resolveString } = useA2UIComponent(node, surfaceId);
+  const { theme, resolveString } = useA2UIComponent(node, surfaceId);
   const props = node.properties;
-  const component = node as Types.IconNode;
+
   const iconName = resolveString(props.name);
 
   if (!iconName) {
     return null;
   }
 
-  // Normalize icon name to handle both camelCase and snake_case
-  const normalizedName = normalizeIconName(iconName);
-  const IconComp = iconMap[normalizedName] ?? Icons.IconHelpCircle;
+  const IconComponent = getAntIcon(iconName);
 
-  const style: React.CSSProperties = {
-    flex: component.weight ?? "initial",
-  };
+  if (!IconComponent) {
+    // 如果找不到图标，显示默认图标或提示
+    return (
+      <section
+        className={classMapToString(theme.components.Icon)}
+        style={stylesToObject(theme.additionalStyles?.Icon)}
+      >
+        <AntIcons.QuestionOutlined className="text-slate-400" />
+      </section>
+    );
+  }
 
   return (
-    <span data-id={component.id}>
-      <IconComp style={style} />
-    </span>
+    <section
+      className={classMapToString(theme.components.Icon)}
+      style={stylesToObject(theme.additionalStyles?.Icon)}
+    >
+      <IconComponent />
+    </section>
   );
 });
 

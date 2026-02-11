@@ -1,0 +1,117 @@
+[
+  {
+    "surfaceUpdate": {
+      "surfaceId": "main",
+      "components": [
+        {
+          "id": "root",
+          "component": {
+            "Column": {
+              "children": {
+                "explicitList": [
+                  "heading",
+                  "description",
+                  "modal"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "heading",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "Modal Component"
+              },
+              "usageHint": "h2"
+            }
+          }
+        },
+        {
+          "id": "description",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "Click the button below to open a modal dialog."
+              },
+              "usageHint": "body"
+            }
+          }
+        },
+        {
+          "id": "modal",
+          "component": {
+            "Modal": {
+              "entryPointChild": "modal-trigger",
+              "contentChild": "modal-content"
+            }
+          }
+        },
+        {
+          "id": "modal-trigger",
+          "component": {
+            "Button": {
+              "child": "modal-trigger-text",
+              "primary": true,
+              "action": {
+                "name": "openModal"
+              }
+            }
+          }
+        },
+        {
+          "id": "modal-trigger-text",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "Open Modal"
+              }
+            }
+          }
+        },
+        {
+          "id": "modal-content",
+          "component": {
+            "Column": {
+              "children": {
+                "explicitList": [
+                  "modal-title",
+                  "modal-body"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "modal-title",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "Modal Title"
+              },
+              "usageHint": "h3"
+            }
+          }
+        },
+        {
+          "id": "modal-body",
+          "component": {
+            "Text": {
+              "text": {
+                "literalString": "This is the modal content. You can put any components here."
+              },
+              "usageHint": "body"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "beginRendering": {
+      "surfaceId": "main",
+      "root": "root"
+    }
+  }
+]

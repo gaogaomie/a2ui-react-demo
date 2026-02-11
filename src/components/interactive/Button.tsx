@@ -1,16 +1,10 @@
 import type { Types } from "@a2ui/lit/0.8";
-import { Button as SemiButton } from "@douyinfe/semi-ui";
+import { Button as AntdButton } from "antd";
 import { memo, useCallback } from "react";
 import { ComponentNode } from "../../core/ComponentNode";
 import { useA2UIComponent } from "../../hooks/useA2UIComponent";
 import type { A2UIComponentProps } from "../../types";
 
-/**
- * Button component - a clickable element that triggers an action.
- *
- * Contains a child component (usually Text or Icon) and dispatches
- * a user action when clicked.
- */
 export const Button = memo(function Button({
   node,
   surfaceId,
@@ -20,26 +14,22 @@ export const Button = memo(function Button({
   const component = node as Types.ButtonNode;
 
   const handleClick = useCallback(() => {
-    if (props.action) {
-      sendAction(props.action);
+    if (props?.action) {
+      sendAction(props?.action);
     }
   }, [props.action, sendAction]);
 
   const style: React.CSSProperties = {
     flex: component.weight ?? "initial",
   };
-
   return (
-    <SemiButton
+    <AntdButton
       data-id={component.id}
-      theme="light"
       onClick={handleClick}
       style={style}
-      type={(props as any).primary ? "primary" : "tertiary"}
+      type={(props as any).primary ? "primary" : "default"}
     >
       <ComponentNode node={props.child} surfaceId={surfaceId} />
-    </SemiButton>
+    </AntdButton>
   );
 });
-
-export default Button;

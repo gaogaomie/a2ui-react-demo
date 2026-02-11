@@ -1,7 +1,7 @@
-import { useCallback, useId, useMemo } from 'react';
-import type { Types, Primitives } from '@a2ui/lit/0.8';
-import { useA2UIActions } from '../core/A2UIProvider';
-import { useTheme } from '../theme/ThemeContext';
+import { useCallback, useId, useMemo } from "react";
+import type { Types, Primitives } from "@a2ui/lit/0.8";
+import { useA2UIActions } from "../core/A2UIProvider";
+import { useTheme } from "../theme/ThemeContext";
 
 /**
  * Result returned by the useA2UIComponent hook.
@@ -11,13 +11,19 @@ export interface UseA2UIComponentResult {
   theme: Types.Theme;
 
   /** Resolve a StringValue to its actual string value */
-  resolveString: (value: Primitives.StringValue | null | undefined) => string | null;
+  resolveString: (
+    value: Primitives.StringValue | null | undefined,
+  ) => string | null;
 
   /** Resolve a NumberValue to its actual number value */
-  resolveNumber: (value: Primitives.NumberValue | null | undefined) => number | null;
+  resolveNumber: (
+    value: Primitives.NumberValue | null | undefined,
+  ) => number | null;
 
   /** Resolve a BooleanValue to its actual boolean value */
-  resolveBoolean: (value: Primitives.BooleanValue | null | undefined) => boolean | null;
+  resolveBoolean: (
+    value: Primitives.BooleanValue | null | undefined,
+  ) => boolean | null;
 
   /** Set a value in the data model (for two-way binding) */
   setValue: (path: string, value: Types.DataValue) => void;
@@ -62,7 +68,7 @@ export interface UseA2UIComponentResult {
  */
 export function useA2UIComponent<T extends Types.AnyComponentNode>(
   node: T,
-  surfaceId: string
+  surfaceId: string,
 ): UseA2UIComponentResult {
   // Use stable actions - won't cause re-renders when version changes
   const actions = useA2UIActions();
@@ -77,7 +83,7 @@ export function useA2UIComponent<T extends Types.AnyComponentNode>(
   const resolveString = useCallback(
     (value: Primitives.StringValue | null | undefined): string | null => {
       if (!value) return null;
-      if (typeof value !== 'object') return null;
+      if (typeof value !== "object") return null;
 
       if (value.literalString !== undefined) {
         return value.literalString;
@@ -91,7 +97,7 @@ export function useA2UIComponent<T extends Types.AnyComponentNode>(
       }
       return null;
     },
-    [actions, node, surfaceId]
+    [actions, node, surfaceId],
   );
 
   /**
@@ -100,7 +106,7 @@ export function useA2UIComponent<T extends Types.AnyComponentNode>(
   const resolveNumber = useCallback(
     (value: Primitives.NumberValue | null | undefined): number | null => {
       if (!value) return null;
-      if (typeof value !== 'object') return null;
+      if (typeof value !== "object") return null;
 
       if (value.literalNumber !== undefined) {
         return value.literalNumber;
@@ -114,7 +120,7 @@ export function useA2UIComponent<T extends Types.AnyComponentNode>(
       }
       return null;
     },
-    [actions, node, surfaceId]
+    [actions, node, surfaceId],
   );
 
   /**
@@ -123,7 +129,7 @@ export function useA2UIComponent<T extends Types.AnyComponentNode>(
   const resolveBoolean = useCallback(
     (value: Primitives.BooleanValue | null | undefined): boolean | null => {
       if (!value) return null;
-      if (typeof value !== 'object') return null;
+      if (typeof value !== "object") return null;
 
       if (value.literalBoolean !== undefined) {
         return value.literalBoolean;
@@ -137,7 +143,7 @@ export function useA2UIComponent<T extends Types.AnyComponentNode>(
       }
       return null;
     },
-    [actions, node, surfaceId]
+    [actions, node, surfaceId],
   );
 
   /**
@@ -147,7 +153,7 @@ export function useA2UIComponent<T extends Types.AnyComponentNode>(
     (path: string, value: Types.DataValue) => {
       actions.setData(node, path, value, surfaceId);
     },
-    [actions, node, surfaceId]
+    [actions, node, surfaceId],
   );
 
   /**
@@ -157,7 +163,7 @@ export function useA2UIComponent<T extends Types.AnyComponentNode>(
     (path: string): Types.DataValue | null => {
       return actions.getData(node, path, surfaceId);
     },
-    [actions, node, surfaceId]
+    [actions, node, surfaceId],
   );
 
   /**
@@ -177,8 +183,15 @@ export function useA2UIComponent<T extends Types.AnyComponentNode>(
           } else if (item.value.literalBoolean !== undefined) {
             actionContext[item.key] = item.value.literalBoolean;
           } else if (item.value.path) {
-            const resolvedPath = actions.resolvePath(item.value.path, node.dataContextPath);
-            actionContext[item.key] = actions.getData(node, resolvedPath, surfaceId);
+            const resolvedPath = actions.resolvePath(
+              item.value.path,
+              node.dataContextPath,
+            );
+            actionContext[item.key] = actions.getData(
+              node,
+              resolvedPath,
+              surfaceId,
+            );
           }
         }
       }
@@ -193,7 +206,7 @@ export function useA2UIComponent<T extends Types.AnyComponentNode>(
         },
       });
     },
-    [actions, node, surfaceId]
+    [actions, node, surfaceId],
   );
 
   /**
@@ -204,7 +217,7 @@ export function useA2UIComponent<T extends Types.AnyComponentNode>(
     (prefix: string) => {
       return `${prefix}${baseId}`;
     },
-    [baseId]
+    [baseId],
   );
 
   return useMemo(
@@ -218,6 +231,15 @@ export function useA2UIComponent<T extends Types.AnyComponentNode>(
       sendAction,
       getUniqueId,
     }),
-    [theme, resolveString, resolveNumber, resolveBoolean, setValue, getValue, sendAction, getUniqueId]
+    [
+      theme,
+      resolveString,
+      resolveNumber,
+      resolveBoolean,
+      setValue,
+      getValue,
+      sendAction,
+      getUniqueId,
+    ],
   );
 }

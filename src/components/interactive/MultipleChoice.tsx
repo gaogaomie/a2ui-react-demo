@@ -1,122 +1,141 @@
-import { useState, useCallback, useEffect, useId, memo } from 'react';
-import type { Types, Primitives } from '@a2ui/lit/0.8';
-import type { A2UIComponentProps } from '../../types';
-import { useA2UIComponent } from '../../hooks/useA2UIComponent';
-import { classMapToString, stylesToObject } from '../../lib/utils';
+import type { Primitives, Types } from "@a2ui/lit/0.8";
+import { Checkbox, Radio, Select } from "antd";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
+import { useA2UIComponent } from "../../hooks/useA2UIComponent";
+import type { A2UIComponentProps } from "../../types";
+
+const CheckboxGroup = Checkbox.Group;
+const RadioGroup = Radio.Group;
 
 interface Option {
   label: Primitives.StringValue;
   value: string;
 }
 
-/**
- * MultipleChoice component - a selection component for single or multiple options.
- *
- * When maxAllowedSelections is 1, renders as radio buttons.
- * Otherwise, renders as checkboxes.
- */
 export const MultipleChoice = memo(function MultipleChoice({
   node,
   surfaceId,
 }: A2UIComponentProps<Types.MultipleChoiceNode>) {
-  const { theme, resolveString, setValue, getValue } = useA2UIComponent(node, surfaceId);
+  const { resolveString, setValue, getValue } = useA2UIComponent(
+    node,
+    surfaceId,
+  );
   const props = node.properties;
-  const groupId = useId();
-
   const options = (props.options as Option[]) ?? [];
   const maxSelections = props.maxAllowedSelections ?? 1;
   const selectionsPath = props.selections?.path;
+  const isMultiple = maxSelections !== 1;
 
-  // Initialize selections from data model or literal
+  /** ---------- 初始化 ---------- */
   const getInitialSelections = (): string[] => {
-    if (selectionsPath) {
-      const data = getValue(selectionsPath);
-      if (Array.isArray(data)) return data.map(String);
-      if (data !== null) return [String(data)];
-    }
+    if (!selectionsPath) return [];
+    const data = getValue(selectionsPath);
+    if (Array.isArray(data)) return data.map(String);
+    if (data !== null && data !== undefined) return [String(data)];
     return [];
   };
 
   const [selections, setSelections] = useState<string[]>(getInitialSelections);
 
-  // Sync with external data model changes
+  /** ---------- 外部同步 ---------- */
   useEffect(() => {
-    if (selectionsPath) {
-      const externalValue = getValue(selectionsPath);
-      if (externalValue !== null) {
-        const newSelections = Array.isArray(externalValue)
-          ? externalValue.map(String)
-          : [String(externalValue)];
-        setSelections(newSelections);
-      }
+    if (!selectionsPath) return;
+
+    const externalValue = getValue(selectionsPath);
+    if (externalValue === null || externalValue === undefined) {
+      setSelections([]);
+      return;
     }
+
+    setSelections(
+      Array.isArray(externalValue)
+        ? externalValue.map(String)
+        : [String(externalValue)],
+    );
   }, [selectionsPath, getValue]);
 
-  const handleChange = useCallback(
-    (optionValue: string, checked: boolean) => {
-      let newSelections: string[];
+  /** ---------- 数据回写 ---------- */
+  const updateSelections = useCallback(
+    (next: string[]) => {
+      const nextSelections = isMultiple
+        ? next.slice(0, maxSelections)
+        : next.slice(0, 1);
 
-      if (maxSelections === 1) {
-        // Radio behavior
-        newSelections = checked ? [optionValue] : [];
-      } else {
-        // Checkbox behavior
-        if (checked) {
-          newSelections = [...selections, optionValue].slice(0, maxSelections);
-        } else {
-          newSelections = selections.filter((v) => v !== optionValue);
-        }
-      }
+      setSelections(nextSelections);
 
-      setSelections(newSelections);
-
-      // Two-way binding: update data model
       if (selectionsPath) {
-        setValue(
-          selectionsPath,
-          maxSelections === 1 ? newSelections[0] ?? '' : newSelections
-        );
+        const value = isMultiple ? nextSelections : (nextSelections[0] ?? "");
+        setValue(selectionsPath, value);
       }
     },
-    [maxSelections, selections, selectionsPath, setValue]
+    [isMultiple, maxSelections, selectionsPath, setValue, node.id],
   );
 
-  const isRadio = maxSelections === 1;
+  /** ---------- Option 数据 ---------- */
+  const optionItems = useMemo(
+    () =>
+      options.map((opt) => ({
+        label: resolveString(opt.label),
+        value: opt.value,
+      })),
+    [options, resolveString],
+  );
 
-  // Use <section> container to match Lit renderer
+  /** ---------- 容器样式 ---------- */
+
+  const style: React.CSSProperties = {
+    flex: node.weight ?? "initial",
+    width: "100%",
+  };
+
+  if (isMultiple && optionItems.length > 5) {
+    return (
+      <Select
+        data-id={node.id}
+        mode="multiple"
+        value={selections}
+        onChange={(value) => updateSelections(value as string[])}
+        style={style}
+      >
+        {optionItems.map((opt) => (
+          <Select.Option key={opt.value} value={opt.value}>
+            {opt.label}
+          </Select.Option>
+        ))}
+      </Select>
+    );
+  }
+
+  if (isMultiple) {
+    return (
+      <CheckboxGroup
+        data-id={node.id}
+        value={selections}
+        onChange={(value) => updateSelections(value as string[])}
+        style={style}
+      >
+        {optionItems.map((opt) => (
+          <Checkbox key={opt.value} value={opt.value}>
+            {opt.label}
+          </Checkbox>
+        ))}
+      </CheckboxGroup>
+    );
+  }
+
   return (
-    <section
-      className={classMapToString(theme.components.MultipleChoice.container)}
-      style={stylesToObject(theme.additionalStyles?.MultipleChoice)}
-      role={isRadio ? 'radiogroup' : 'group'}
+    <RadioGroup
+      data-id={node.id}
+      value={selections[0] ?? ""}
+      onChange={(e) => updateSelections([e.target.value])}
+      style={style}
     >
-      {options.map((option, index) => {
-        const label = resolveString(option.label);
-        const optionId = `${groupId}-${index}`;
-        const isSelected = selections.includes(option.value);
-
-        return (
-          <label
-            key={option.value}
-            className={classMapToString(theme.components.MultipleChoice.element)}
-            style={{ cursor: 'pointer', display: 'flex', flexDirection: 'row', gap: '0.5rem', alignItems: 'center' }}
-          >
-            <input
-              type={isRadio ? 'radio' : 'checkbox'}
-              id={optionId}
-              name={groupId}
-              value={option.value}
-              checked={isSelected}
-              onChange={(e) => handleChange(option.value, e.target.checked)}
-              style={{ cursor: 'pointer' }}
-            />
-            <span className={classMapToString(theme.components.MultipleChoice.label)}>
-              {label}
-            </span>
-          </label>
-        );
-      })}
-    </section>
+      {optionItems.map((opt) => (
+        <Radio key={opt.value} value={opt.value}>
+          {opt.label}
+        </Radio>
+      ))}
+    </RadioGroup>
   );
 });
 

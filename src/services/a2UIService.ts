@@ -5,7 +5,7 @@ import { buildSystemPrompt } from "../llm/prompts";
 import { withRetry } from "../llm/retry";
 
 // deepseek.com接口示例
-const llm = createLLMClient({
+export const llm = createLLMClient({
   baseURL: "https://api.deepseek.com",
   apiKey: process.env.API_KEY,
   model: "deepseek-chat",

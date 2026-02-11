@@ -7,14 +7,19 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@a2a-js/sdk": "^0.3.9",
     "@a2ui/lit": "^0.8.1",
-    "@douyinfe/semi-ui": "^2.90.13",
+    "@ant-design/icons": "^5.6.1",
+    "@antv/g-svg": "^2.1.1",
+    "@antv/g2": "^5.4.8",
+    "antd": "^5.29.3",
     "axios": "^1.13.2",
     "clsx": "^2.1.0",
+    "dayjs": "^1.11.19",
     "lodash-es": "^4.17.23",
     "lucide-react": "^0.562.0",
     "markdown-it": "^14.0.0",
@@ -36,6 +41,7 @@
     "globals": "^16.5.0",
     "jsdom": "^25.0.0",
     "markdown-it": "^14.0.0",
+    "patch-package": "^8.0.1",
     "typescript": "^5.8.3",
     "vite": "^7.2.4",
     "wireit": "^0.15.0-pre.2"

@@ -1,0 +1,1988 @@
+[
+    {
+        "beginRendering": {
+            "surfaceId": "default",
+            "root": "root",
+            "styles": {
+                "primaryColor": "#FF0000",
+                "font": "Roboto"
+            }
+        }
+    },
+    {
+        "surfaceUpdate": {
+            "surfaceId": "default",
+            "components": [
+                {
+                    "id": "root",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "title",
+                                    "instructions",
+                                    "singleChoiceSection",
+                                    "multiChoiceSection",
+                                    "trueFalseSection",
+                                    "submitBtn",
+                                    "submitBtnText"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "title",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "小微贷产品培训考试试卷"
+                            },
+                            "usageHint": "h1"
+                        }
+                    }
+                },
+                {
+                    "id": "instructions",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "请完成以下考试题目。选择答案后可以提交答卷，查看得分和解析。"
+                            },
+                            "usageHint": "body"
+                        }
+                    }
+                },
+                {
+                    "id": "singleChoiceSection",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "singleChoiceTitle",
+                                    "q1",
+                                    "q2",
+                                    "q3",
+                                    "q4",
+                                    "q5",
+                                    "q6",
+                                    "q7",
+                                    "q8",
+                                    "q9",
+                                    "q10",
+                                    "q11",
+                                    "q12",
+                                    "q13",
+                                    "q14",
+                                    "q15"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "singleChoiceTitle",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "一、单选题（每题4分，共60分）"
+                            },
+                            "usageHint": "h2"
+                        }
+                    }
+                },
+                {
+                    "id": "q1",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q1_text",
+                                    "q1_options",
+                                    "q1_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q1_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"产品的主要依据文件不包括以下哪项？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q1_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q1"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 《江苏省普惠金融发展风险补偿基金管理办法》"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 《江苏省\"小微贷\"工作方案(2025-2027年)》"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 《商业银行资本管理办法》"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 省联社有关信贷业务管理制度"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q1_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q1_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q2",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q2_text",
+                                    "q2_options",
+                                    "q2_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q2_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"产品的适用对象是？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q2_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q2"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 江苏省内所有企业"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 江苏省内注册的小型、微型企业"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 全国范围内的小微企业"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 江苏省内大型企业"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q2_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q2_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q3",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q3_text",
+                                    "q3_options",
+                                    "q3_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q3_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"产品的主要用途是？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q3_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q3"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 固定资产投资"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 生产经营周转"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 个人消费"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 房地产开发"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q3_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q3_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q4",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q4_text",
+                                    "q4_options",
+                                    "q4_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q4_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "以下哪个部门负责\"小微贷\"业务的审查、审批？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q4_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q4"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 公司银行部"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 经办支行"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 授信审批部"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 信贷管理部"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q4_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q4_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q5",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q5_text",
+                                    "q5_options",
+                                    "q5_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q5_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"业务的管理依托于哪个平台实现？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q5_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q5"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 江苏省综合金融服务平台"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 人民银行征信系统"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 银保监会监管系统"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 本行内部管理系统"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q5_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q5_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q6",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q6_text",
+                                    "q6_options",
+                                    "q6_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q6_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "小微企业的划型标准依据是？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q6_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q6"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 《商业银行小微企业贷款管理办法》"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 《关于印发中小企业划型标准规定的通知》"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 《小微企业贷款风险管理办法》"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 《江苏省小微企业认定标准》"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q6_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q6_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q7",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q7_text",
+                                    "q7_options",
+                                    "q7_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q7_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "公司银行部在\"小微贷\"业务中的职责不包括？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q7_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q7"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 对接风险补偿金管理机构"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 制定实施细则"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 直接办理贷款业务"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 指导支行营销拓展"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q7_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q7_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q8",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q8_text",
+                                    "q8_options",
+                                    "q8_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q8_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "信贷管理部主要负责\"小微贷\"业务的哪个环节？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q8_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q8"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 营销拓展"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 贷中、贷后管理"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 审查审批"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 风险补偿"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q8_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q8_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q9",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q9_text",
+                                    "q9_options",
+                                    "q9_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q9_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"产品的实施细则是哪个版本的？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q9_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q9"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 1.0版"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 2.0版"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 3.0版"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 4.0版"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q9_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q9_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q10",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q10_text",
+                                    "q10_options",
+                                    "q10_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q10_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"业务经办行包括？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q10_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q10"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 江苏省内支行(含二级支行)"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 全国所有分支机构"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 仅总行营业部"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 仅一级支行"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q10_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q10_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q11",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q11_text",
+                                    "q11_options",
+                                    "q11_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q11_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "以下哪项不是\"小微贷\"产品的特点？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q11_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q11"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 短期流动资金贷款"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 用于生产经营周转"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 长期固定资产贷款"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 面向小微企业"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q11_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q11_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q12",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q12_text",
+                                    "q12_options",
+                                    "q12_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q12_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "风险补偿工作主要由哪个部门协助进行？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q12_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q12"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 授信审批部"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 公司银行部"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 信贷管理部"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 经办支行"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q12_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q12_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q13",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q13_text",
+                                    "q13_options",
+                                    "q13_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q13_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"产品的管理平台全称是？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q13_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q13"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 江苏省普惠金融发展风险补偿基金专版"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 江苏省小微企业金融服务平台"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 江苏省银行信贷管理系统"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 江苏省金融监管平台"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q13_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q13_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q14",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q14_text",
+                                    "q14_options",
+                                    "q14_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q14_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"实施细则的制定和解释由哪个部门负责？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q14_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q14"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 授信审批部"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 公司银行部"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 信贷管理部"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 风险管理部门"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q14_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q14_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "q15",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "q15_text",
+                                    "q15_options",
+                                    "q15_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "q15_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"业务的服务对象必须位于？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "q15_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/q15"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 本行实体经营支行辖区之内"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 江苏省内任意地区"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 长三角地区"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 全国范围内"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "q15_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/q15_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "multiChoiceSection",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "multiChoiceTitle",
+                                    "m1",
+                                    "m2",
+                                    "m3",
+                                    "m4",
+                                    "m5"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "multiChoiceTitle",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "二、多选题（每题4分，共20分）"
+                            },
+                            "usageHint": "h2"
+                        }
+                    }
+                },
+                {
+                    "id": "m1",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "m1_text",
+                                    "m1_options",
+                                    "m1_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "m1_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"产品的依据文件包括？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "m1_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/m1"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 《江苏省普惠金融发展风险补偿基金管理办法》"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 《江苏省\"小微贷\"工作方案(2025-2027年)》"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 国家法律法规"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 省联社有关信贷业务管理制度"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 4
+                        }
+                    }
+                },
+                {
+                    "id": "m1_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/m1_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "m2",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "m2_text",
+                                    "m2_options",
+                                    "m2_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "m2_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "以下哪些部门参与\"小微贷\"业务管理？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "m2_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/m2"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 公司银行部"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 经办支行"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 授信审批部"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 信贷管理部"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 4
+                        }
+                    }
+                },
+                {
+                    "id": "m2_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/m2_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "m3",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "m3_text",
+                                    "m3_options",
+                                    "m3_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "m3_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"产品的特点包括？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "m3_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/m3"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 面向小微企业"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 用于生产经营周转"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 短期流动资金贷款"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 依托信息化平台管理"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 4
+                        }
+                    }
+                },
+                {
+                    "id": "m3_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/m3_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "m4",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "m4_text",
+                                    "m4_options",
+                                    "m4_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "m4_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "关于\"小微贷\"业务经办行，以下说法正确的是？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "m4_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/m4"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 包括江苏省内支行"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 包括二级支行"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 负责贷款业务办理"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 负责风险补偿工作"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 3
+                        }
+                    }
+                },
+                {
+                    "id": "m4_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/m4_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "m5",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "m5_text",
+                                    "m5_options",
+                                    "m5_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "m5_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"业务管理涉及的主要环节包括？"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "m5_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/m5"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "A. 营销拓展"
+                                    },
+                                    "value": "A"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "B. 审查审批"
+                                    },
+                                    "value": "B"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "C. 贷中管理"
+                                    },
+                                    "value": "C"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "D. 贷后管理"
+                                    },
+                                    "value": "D"
+                                }
+                            ],
+                            "maxAllowedSelections": 4
+                        }
+                    }
+                },
+                {
+                    "id": "m5_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/m5_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "trueFalseSection",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "trueFalseTitle",
+                                    "t1",
+                                    "t2",
+                                    "t3",
+                                    "t4",
+                                    "t5"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "trueFalseTitle",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "三、判断题（每题4分，共20分）"
+                            },
+                            "usageHint": "h2"
+                        }
+                    }
+                },
+                {
+                    "id": "t1",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "t1_text",
+                                    "t1_options",
+                                    "t1_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "t1_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"产品可以用于房地产开发。"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "t1_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/t1"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "正确"
+                                    },
+                                    "value": "True"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "错误"
+                                    },
+                                    "value": "False"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "t1_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/t1_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "t2",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "t2_text",
+                                    "t2_options",
+                                    "t2_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "t2_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "公司银行部是\"小微贷\"业务的牵头部门。"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "t2_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/t2"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "正确"
+                                    },
+                                    "value": "True"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "错误"
+                                    },
+                                    "value": "False"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "t2_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/t2_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "t3",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "t3_text",
+                                    "t3_options",
+                                    "t3_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "t3_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"业务可以面向全国范围内的小微企业。"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "t3_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/t3"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "正确"
+                                    },
+                                    "value": "True"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "错误"
+                                    },
+                                    "value": "False"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "t3_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/t3_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "t4",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "t4_text",
+                                    "t4_options",
+                                    "t4_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "t4_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "信贷管理部负责\"小微贷\"业务的贷前调查工作。"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "t4_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/t4"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "正确"
+                                    },
+                                    "value": "True"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "错误"
+                                    },
+                                    "value": "False"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "t4_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/t4_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "t5",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "t5_text",
+                                    "t5_options",
+                                    "t5_result"
+                                ]
+                            },
+                            "distribution": "start",
+                            "alignment": "stretch"
+                        }
+                    }
+                },
+                {
+                    "id": "t5_text",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "\"小微贷\"业务依托江苏省综合金融服务平台实现全流程信息化管理。"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "t5_options",
+                    "component": {
+                        "MultipleChoice": {
+                            "selections": {
+                                "path": "/form/answers/t5"
+                            },
+                            "options": [
+                                {
+                                    "label": {
+                                        "literalString": "正确"
+                                    },
+                                    "value": "True"
+                                },
+                                {
+                                    "label": {
+                                        "literalString": "错误"
+                                    },
+                                    "value": "False"
+                                }
+                            ],
+                            "maxAllowedSelections": 1
+                        }
+                    }
+                },
+                {
+                    "id": "t5_result",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "path": "/form/answers/t5_result"
+                            },
+                            "usageHint": "caption"
+                        }
+                    }
+                },
+                {
+                    "id": "submitBtnText",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "提交答卷"
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "submitBtn",
+                    "component": {
+                        "Button": {
+                            "child": "submitBtnText",
+                            "primary": "true",
+                            "action": {
+                                "name": "submitAnswers",
+                                "context": [
+                                    {
+                                        "key": "answers",
+                                        "value": {
+                                            "path": "/form/answers"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "dataModelUpdate": {
+            "surfaceId": "default",
+            "path": "/",
+            "contents": []
+        }
+    }
+]

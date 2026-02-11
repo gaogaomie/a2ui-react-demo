@@ -1,5 +1,5 @@
 import type { Types } from "@a2ui/lit/0.8";
-import { Divider as SemiDivider } from "@douyinfe/semi-ui";
+import { Divider as AntdDivider } from "antd";
 import { memo } from "react";
 import type { A2UIComponentProps } from "../../types";
 
@@ -21,9 +21,10 @@ export const Divider = memo(function Divider({
   };
 
   return (
-    <SemiDivider
+    <AntdDivider
       data-id={component.id}
-      layout={axis === "vertical" ? "vertical" : "horizontal"}
+      type={axis === "vertical" ? "vertical" : "horizontal"}
+      // orientation="vertical"
       style={style}
     />
   );

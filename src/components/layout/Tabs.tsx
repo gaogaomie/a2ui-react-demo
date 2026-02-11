@@ -1,9 +1,10 @@
 import type { Types } from "@a2ui/lit/0.8";
-import { Tabs as SemiTabs, TabPane } from "@douyinfe/semi-ui";
+import { Tabs as AntdTabs } from "antd";
 import { memo } from "react";
 import { ComponentNode } from "../../core/ComponentNode";
 import { useA2UIComponent } from "../../hooks/useA2UIComponent";
 import type { A2UIComponentProps } from "../../types";
+const { TabPane } = AntdTabs;
 
 export const Tabs = memo(function Tabs({
   node,
@@ -19,7 +20,7 @@ export const Tabs = memo(function Tabs({
 
   return (
     <div data-id={component.id}>
-      <SemiTabs style={style} type="button">
+      <AntdTabs style={style} type="card">
         {tabItems?.map((item, index) => {
           const title = resolveString(item.title);
           const node = tabItems[index]?.child;
@@ -29,7 +30,7 @@ export const Tabs = memo(function Tabs({
             </TabPane>
           );
         })}
-      </SemiTabs>
+      </AntdTabs>
     </div>
   );
 });

@@ -1,0 +1,243 @@
+[
+    {
+        "beginRendering": {
+            "surfaceId": "chartDemo",
+            "root": "chartCard",
+            "styles": {
+                "primaryColor": "#1E88E5",
+                "font": "Roboto"
+            }
+        }
+    },
+    {
+        "surfaceUpdate": {
+            "surfaceId": "chartDemo",
+            "components": [
+                {
+                    "id": "chartCard",
+                    "component": {
+                        "Card": {
+                            "child": "chartColumn"
+                        }
+                    }
+                },
+                {
+                    "id": "chartColumn",
+                    "component": {
+                        "Column": {
+                            "children": {
+                                "explicitList": [
+                                    "chartTitle",
+                                    "chartComp"
+                                ]
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "chartTitle",
+                    "component": {
+                        "Text": {
+                            "text": {
+                                "literalString": "区域销售数据分析"
+                            },
+                            "usageHint": "h2"
+                        }
+                    }
+                },
+                {
+                    "id": "chartComp",
+                    "component": {
+                        "Chart": {
+                            "dataSourcePath": "/chartData",
+                            "title": {
+                                "literalString": "2024年度销售统计"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "dataModelUpdate": {
+            "surfaceId": "chartDemo",
+            "path": "/",
+            "contents": [
+                {
+                    "key": "chartData",
+                    "valueMap": [
+                        {
+                            "key": "0",
+                            "valueMap": [
+                                {
+                                    "key": "区域",
+                                    "valueString": "北美地区"
+                                },
+                                {
+                                    "key": "销售额",
+                                    "valueNumber": 450000
+                                },
+                                {
+                                    "key": "增长率",
+                                    "valueNumber": 12.5
+                                },
+                                {
+                                    "key": "客户数",
+                                    "valueNumber": 1200
+                                }
+                            ]
+                        },
+                        {
+                            "key": "1",
+                            "valueMap": [
+                                {
+                                    "key": "区域",
+                                    "valueString": "欧洲地区"
+                                },
+                                {
+                                    "key": "销售额",
+                                    "valueNumber": 380000
+                                },
+                                {
+                                    "key": "增长率",
+                                    "valueNumber": 8.2
+                                },
+                                {
+                                    "key": "客户数",
+                                    "valueNumber": 980
+                                }
+                            ]
+                        },
+                        {
+                            "key": "2",
+                            "valueMap": [
+                                {
+                                    "key": "区域",
+                                    "valueString": "亚太地区"
+                                },
+                                {
+                                    "key": "销售额",
+                                    "valueNumber": 620000
+                                },
+                                {
+                                    "key": "增长率",
+                                    "valueNumber": 24.1
+                                },
+                                {
+                                    "key": "客户数",
+                                    "valueNumber": 2450
+                                }
+                            ]
+                        },
+                        {
+                            "key": "3",
+                            "valueMap": [
+                                {
+                                    "key": "区域",
+                                    "valueString": "拉丁美洲"
+                                },
+                                {
+                                    "key": "销售额",
+                                    "valueNumber": 150000
+                                },
+                                {
+                                    "key": "增长率",
+                                    "valueNumber": 4.5
+                                },
+                                {
+                                    "key": "客户数",
+                                    "valueNumber": 430
+                                }
+                            ]
+                        },
+                        {
+                            "key": "4",
+                            "valueMap": [
+                                {
+                                    "key": "区域",
+                                    "valueString": "中东地区"
+                                },
+                                {
+                                    "key": "销售额",
+                                    "valueNumber": 90000
+                                },
+                                {
+                                    "key": "增长率",
+                                    "valueNumber": 15
+                                },
+                                {
+                                    "key": "客户数",
+                                    "valueNumber": 210
+                                }
+                            ]
+                        },
+                        {
+                            "key": "5",
+                            "valueMap": [
+                                {
+                                    "key": "区域",
+                                    "valueString": "非洲地区"
+                                },
+                                {
+                                    "key": "销售额",
+                                    "valueNumber": 45000
+                                },
+                                {
+                                    "key": "增长率",
+                                    "valueNumber": 2.1
+                                },
+                                {
+                                    "key": "客户数",
+                                    "valueNumber": 150
+                                }
+                            ]
+                        },
+                        {
+                            "key": "6",
+                            "valueMap": [
+                                {
+                                    "key": "区域",
+                                    "valueString": "大洋洲"
+                                },
+                                {
+                                    "key": "销售额",
+                                    "valueNumber": 75000
+                                },
+                                {
+                                    "key": "增长率",
+                                    "valueNumber": 5.4
+                                },
+                                {
+                                    "key": "客户数",
+                                    "valueNumber": 180
+                                }
+                            ]
+                        },
+                        {
+                            "key": "7",
+                            "valueMap": [
+                                {
+                                    "key": "区域",
+                                    "valueString": "其他"
+                                },
+                                {
+                                    "key": "销售额",
+                                    "valueNumber": 25000
+                                },
+                                {
+                                    "key": "增长率",
+                                    "valueNumber": -1.2
+                                },
+                                {
+                                    "key": "客户数",
+                                    "valueNumber": 85
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

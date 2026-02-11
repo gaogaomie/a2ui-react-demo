@@ -1,6 +1,9 @@
-export { Text } from './Text';
-export { Image } from './Image';
-export { Icon } from './Icon';
-export { Divider } from './Divider';
-export { Video } from './Video';
-export { AudioPlayer } from './AudioPlayer';
+export { AudioPlayer } from "./AudioPlayer";
+export { Chart } from "./Chart";
+export { Divider } from "./Divider";
+export { Empty } from "./Empty";
+export { Icon } from "./Icon";
+export { Image } from "./Image";
+export { Table } from "./Table";
+export { Text } from "./Text";
+export { Video } from "./Video";
